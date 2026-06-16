@@ -16,9 +16,7 @@ export default defineNuxtConfig({
 
   css: ['~/assets/css/main.css', '~/assets/css/typeface.css'],
 
-  svgo: {
-    defaultImport: 'component',
-  },
+
 
   prismic: {
     endpoint: repositoryName,
@@ -50,11 +48,11 @@ export default defineNuxtConfig({
     name: 'alborota-2',
     clients: {
       storefront: {
-        apiVersion: '2025-10',
+        apiVersion: '2026-04',
         publicAccessToken: process.env.SHOPIFY_STOREFRONT_ACCESS_TOKEN || '',
       },
       admin: {
-        apiVersion: '2025-10',
+        apiVersion: '2026-04',
         accessToken: process.env.SHOPIFY_PRIVATE_ACCESS_TOKEN || '',
         codegen: { skip: true },
       },

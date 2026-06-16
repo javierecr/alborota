@@ -25,6 +25,7 @@ const allProductsQuery = `#graphql
         featuredImage { url altText }
         images(first: 5) { nodes { url altText } }
         variants(first: 10) { nodes { ...VariantFields } }
+        collections(first: 3) { nodes { handle } }
       }
     }
   }
@@ -42,6 +43,7 @@ const collectionQuery = `#graphql
           featuredImage { url altText }
           images(first: 5) { nodes { url altText } }
           variants(first: 10) { nodes { ...VariantFields } }
+          collections(first: 3) { nodes { handle } }
         }
       }
     }

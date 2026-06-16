@@ -10,9 +10,9 @@ export default {
         'alborota-grass':  'var(--color-alborota-grass)',
       },
       fontFamily: {
-        sans:    ['StevieSans', 'sans-serif'],
-        display: ['StevieSansBlack', 'sans-serif'],
-        serif:   ['ABC Diatype Unlicensed Trial', 'serif'],
+        stevie:    ['StevieSans', 'sans-serif'],
+        'stevie-black': ['StevieSansBlack', 'sans-serif'],
+        abc:   ['ABC Diatype Unlicensed Trial', 'serif'],
       },
     },
   },

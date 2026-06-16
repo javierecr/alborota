@@ -63,8 +63,10 @@ export const useCart = () => {
     if (quantity <= 0) return removeFromCart(variantId);
     const idx = items.value.findIndex(i => i.variantId === variantId);
     if (idx === -1) return;
+    const item = items.value[idx];
+    if (!item) return;
     const updated = [...items.value];
-    updated[idx] = { ...updated[idx], quantity };
+    updated[idx] = { ...item, quantity };
     items.value = updated;
     persist();
   }
