@@ -1,0 +1,37 @@
+{
+  "id": "producto",
+  "format": "page",
+  "label": "Producto",
+  "repeatable": true,
+  "json": {
+    "Main": {
+      "uid": {
+        "type": "UID",
+        "config": { "label": "UID (Shopify handle)" }
+      },
+      "page_title": {
+        "type": "Text",
+        "config": { "label": "Product Title" }
+      },
+      "slices": {
+        "type": "Slices",
+        "fieldset": "Slice Zone",
+        "config": { "choices": {} }
+      }
+    },
+    "SEO & Metadata": {
+      "meta_title": {
+        "type": "Text",
+        "config": { "label": "Meta Title" }
+      },
+      "meta_description": {
+        "type": "Text",
+        "config": { "label": "Meta Description" }
+      },
+      "meta_image": {
+        "type": "Image",
+        "config": { "label": "Meta Image", "constraint": {}, "thumbnails": [] }
+      }
+    }
+  }
+}

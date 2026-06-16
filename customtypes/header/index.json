@@ -1,0 +1,30 @@
+{
+  "id": "header",
+  "format": "custom",
+  "label": "Header",
+  "repeatable": false,
+  "json": {
+    "Main": {
+      "logo": {
+        "type": "Image",
+        "config": { "label": "Logo", "constraint": {}, "thumbnails": [] }
+      },
+      "navigation": {
+        "type": "Group",
+        "config": {
+          "label": "Navigation Links",
+          "fields": {
+            "label": {
+              "type": "Text",
+              "config": { "label": "Label" }
+            },
+            "link": {
+              "type": "Link",
+              "config": { "label": "Link" }
+            }
+          }
+        }
+      }
+    }
+  }
+}

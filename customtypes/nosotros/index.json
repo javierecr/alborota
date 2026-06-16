@@ -1,0 +1,33 @@
+{
+  "id": "nosotros",
+  "format": "page",
+  "label": "Nosotros",
+  "repeatable": false,
+  "json": {
+    "Main": {
+      "page_title": {
+        "type": "Text",
+        "config": { "label": "Page Title", "placeholder": "Nosotros" }
+      },
+      "slices": {
+        "type": "Slices",
+        "fieldset": "Slice Zone",
+        "config": { "choices": {} }
+      }
+    },
+    "SEO & Metadata": {
+      "meta_title": {
+        "type": "Text",
+        "config": { "label": "Meta Title" }
+      },
+      "meta_description": {
+        "type": "Text",
+        "config": { "label": "Meta Description" }
+      },
+      "meta_image": {
+        "type": "Image",
+        "config": { "label": "Meta Image", "constraint": {}, "thumbnails": [] }
+      }
+    }
+  }
+}

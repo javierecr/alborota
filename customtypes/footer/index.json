@@ -1,0 +1,46 @@
+{
+  "id": "footer",
+  "format": "custom",
+  "label": "Footer",
+  "repeatable": false,
+  "json": {
+    "Main": {
+      "tagline": {
+        "type": "Text",
+        "config": { "label": "Tagline" }
+      },
+      "links": {
+        "type": "Group",
+        "config": {
+          "label": "Footer Links",
+          "fields": {
+            "label": {
+              "type": "Text",
+              "config": { "label": "Label" }
+            },
+            "link": {
+              "type": "Link",
+              "config": { "label": "Link" }
+            }
+          }
+        }
+      },
+      "legal_links": {
+        "type": "Group",
+        "config": {
+          "label": "Legal Links",
+          "fields": {
+            "label": {
+              "type": "Text",
+              "config": { "label": "Label" }
+            },
+            "link": {
+              "type": "Link",
+              "config": { "label": "Link" }
+            }
+          }
+        }
+      }
+    }
+  }
+}

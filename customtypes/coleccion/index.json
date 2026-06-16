@@ -1,0 +1,41 @@
+{
+  "id": "coleccion",
+  "format": "page",
+  "label": "Colección",
+  "repeatable": true,
+  "json": {
+    "Main": {
+      "uid": {
+        "type": "UID",
+        "config": { "label": "UID" }
+      },
+      "page_title": {
+        "type": "Text",
+        "config": { "label": "Page Title", "placeholder": "Nombre de la colección" }
+      },
+      "shopify_collection_id": {
+        "type": "Text",
+        "config": { "label": "Shopify Collection ID", "placeholder": "gid://shopify/Collection/..." }
+      },
+      "slices": {
+        "type": "Slices",
+        "fieldset": "Slice Zone",
+        "config": { "choices": {} }
+      }
+    },
+    "SEO & Metadata": {
+      "meta_title": {
+        "type": "Text",
+        "config": { "label": "Meta Title" }
+      },
+      "meta_description": {
+        "type": "Text",
+        "config": { "label": "Meta Description" }
+      },
+      "meta_image": {
+        "type": "Image",
+        "config": { "label": "Meta Image", "constraint": {}, "thumbnails": [] }
+      }
+    }
+  }
+}
