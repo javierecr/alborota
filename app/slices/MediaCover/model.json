@@ -1,0 +1,40 @@
+{
+  "id": "media_cover",
+  "type": "SharedSlice",
+  "name": "MediaCover",
+  "description": "MediaCover",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "image": {
+          "type": "Image",
+          "config": {
+            "label": "Image",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "height": {
+          "type": "Select",
+          "config": {
+            "label": "Height",
+            "placeholder": "",
+            "options": [
+              "1/0.6",
+              "Screen",
+              "Auto"
+            ],
+            "default_value": "1/0.6"
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

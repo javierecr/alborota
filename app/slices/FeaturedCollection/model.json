@@ -1,0 +1,33 @@
+{
+  "id": "featured_collection",
+  "type": "SharedSlice",
+  "name": "FeaturedCollection",
+  "description": "FeaturedCollection",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "heading": {
+          "type": "Text",
+          "config": {
+            "label": "Heading",
+            "placeholder": ""
+          }
+        },
+        "shopify_collection_id": {
+          "type": "Number",
+          "config": {
+            "label": "Shopify Collection ID",
+            "placeholder": ""
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}
