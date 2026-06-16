@@ -3,24 +3,44 @@
   "format": "custom",
   "label": "Footer",
   "repeatable": false,
+  "status": true,
   "json": {
     "Main": {
+      "bg_image": {
+        "type": "Image",
+        "config": {
+          "label": "Background Image",
+          "constraint": {},
+          "thumbnails": []
+        }
+      },
       "tagline": {
         "type": "Text",
-        "config": { "label": "Tagline" }
+        "config": {
+          "label": "Tagline"
+        }
       },
-      "links": {
+      "blocks": {
         "type": "Group",
         "config": {
-          "label": "Footer Links",
+          "label": "Footer Blocks",
+          "repeat": true,
           "fields": {
-            "label": {
+            "title": {
               "type": "Text",
-              "config": { "label": "Label" }
+              "config": {
+                "label": "Title",
+                "placeholder": ""
+              }
             },
-            "link": {
-              "type": "Link",
-              "config": { "label": "Link" }
+            "content": {
+              "type": "StructuredText",
+              "config": {
+                "label": "Content",
+                "placeholder": "",
+                "allowTargetBlank": true,
+                "multi": "paragraph,hyperlink"
+              }
             }
           }
         }
@@ -32,11 +52,16 @@
           "fields": {
             "label": {
               "type": "Text",
-              "config": { "label": "Label" }
+              "config": {
+                "label": "Label"
+              }
             },
             "link": {
               "type": "Link",
-              "config": { "label": "Link" }
+              "config": {
+                "label": "Link",
+                "select": null
+              }
             }
           }
         }
