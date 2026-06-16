@@ -895,6 +895,97 @@ export type ProductoDocument<Lang extends string = string> =
     Lang
   >;
 
+/**
+ * Item in *Project → Tags*
+ */
+export interface ProjectDocumentDataTagsItem {
+  /**
+   * Tag field in *Project → Tags*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: project.tags[].tag
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  tag: prismic.KeyTextField;
+}
+
+/**
+ * Content for Project documents
+ */
+interface ProjectDocumentData {
+  /**
+   * Image field in *Project*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: project.image
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  image: prismic.ImageField<never>;
+
+  /**
+   * Title field in *Project*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: project.title
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Description field in *Project*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: project.description
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  description: prismic.RichTextField;
+
+  /**
+   * Year field in *Project*
+   *
+   * - **Field Type**: Number
+   * - **Placeholder**: *None*
+   * - **API ID Path**: project.year
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/number
+   */
+  year: prismic.NumberField;
+
+  /**
+   * Tags field in *Project*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: project.tags[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  tags: prismic.GroupField<Simplify<ProjectDocumentDataTagsItem>>;
+}
+
+/**
+ * Project document from Prismic
+ *
+ * - **API ID**: `project`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/content-modeling
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type ProjectDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithUID<
+    Simplify<ProjectDocumentData>,
+    "project",
+    Lang
+  >;
+
 type TiendaDocumentDataSlicesSlice = never;
 
 /**
@@ -982,6 +1073,7 @@ export type AllDocumentTypes =
   | NosotrosDocument
   | ProductPageDocument
   | ProductoDocument
+  | ProjectDocument
   | TiendaDocument;
 
 /**
@@ -1283,54 +1375,27 @@ export type FeaturedCollectionSlice = prismic.SharedSlice<
  */
 export interface FeaturedProjectsSliceDefaultPrimaryProjectsItem {
   /**
-   * Image field in *FeaturedProjects → Default → Primary → Projects*
+   * Project field in *FeaturedProjects → Default → Primary → Projects*
    *
-   * - **Field Type**: Image
+   * - **Field Type**: Content Relationship
    * - **Placeholder**: *None*
-   * - **API ID Path**: featured_projects.default.primary.projects[].image
-   * - **Documentation**: https://prismic.io/docs/fields/image
+   * - **API ID Path**: featured_projects.default.primary.projects[].project
+   * - **Documentation**: https://prismic.io/docs/fields/content-relationship
    */
-  image: prismic.ImageField<never>;
-
-  /**
-   * Title field in *FeaturedProjects → Default → Primary → Projects*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: featured_projects.default.primary.projects[].title
-   * - **Documentation**: https://prismic.io/docs/fields/text
-   */
-  title: prismic.KeyTextField;
-
-  /**
-   * Description field in *FeaturedProjects → Default → Primary → Projects*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: featured_projects.default.primary.projects[].description
-   * - **Documentation**: https://prismic.io/docs/fields/rich-text
-   */
-  description: prismic.RichTextField;
-
-  /**
-   * Tags (comma-separated) field in *FeaturedProjects → Default → Primary → Projects*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: Ej: Ramos de boda, Papel picado, Decoraciones
-   * - **API ID Path**: featured_projects.default.primary.projects[].tags
-   * - **Documentation**: https://prismic.io/docs/fields/text
-   */
-  tags: prismic.KeyTextField;
-
-  /**
-   * Year field in *FeaturedProjects → Default → Primary → Projects*
-   *
-   * - **Field Type**: Number
-   * - **Placeholder**: *None*
-   * - **API ID Path**: featured_projects.default.primary.projects[].year
-   * - **Documentation**: https://prismic.io/docs/fields/number
-   */
-  year: prismic.NumberField;
+  project: ContentRelationshipFieldWithData<
+    [
+      {
+        id: "project";
+        fields: [
+          "image",
+          "title",
+          "description",
+          "year",
+          { id: "tags"; fields: ["tag"] },
+        ];
+      },
+    ]
+  >;
 }
 
 /**
@@ -1573,6 +1638,9 @@ declare module "@prismicio/client" {
       ProductoDocument,
       ProductoDocumentData,
       ProductoDocumentDataSlicesSlice,
+      ProjectDocument,
+      ProjectDocumentData,
+      ProjectDocumentDataTagsItem,
       TiendaDocument,
       TiendaDocumentData,
       TiendaDocumentDataSlicesSlice,
