@@ -1,7 +1,18 @@
 <script setup lang="ts">
 import type { Content } from "@prismicio/client";
 
-defineProps(getSliceComponentProps<Content.MediaCoverSlice>());
+const props = defineProps(getSliceComponentProps<Content.MediaCoverSlice>());
+
+const imageHeightClass = computed(() => {
+  switch (props.slice.primary.height) {
+    case "1/0.6":
+      return "pb-[min(60%,calc(100dvh-var(--header-height,88px)))] h-0";
+    case "Screen":
+      return "h-[calc(100dvh-var(--header-height,88px))]";
+    default:
+      return "";
+  }
+});
 </script>
 
 <template>
@@ -9,14 +20,8 @@ defineProps(getSliceComponentProps<Content.MediaCoverSlice>());
     :data-slice-type="slice.slice_type"
     :data-slice-variation="slice.variation"
   >
-    Placeholder component for media_cover (variation: {{ slice.variation }})
-    slices.
-
-    <br />
-    <strong>You can edit this slice directly in your code editor.</strong>
-    <!--
-	💡 Use your own AI agent with the Prismic CLI
-	📚 Docs: https://prismic.io/docs/ai#create-slices
--->
+    <div class="w-full" :class="[imageHeightClass, {'relative overflow-hidden': props.slice.primary.height != 'Auto'}]">
+      <PrismicImage class="w-full" :class="`${props.slice.primary.height == 'Auto' ? 'h-auto' : 'object-cover absolute inset-0 object-center'}`" :field="slice.primary.image" />
+    </div>
   </section>
 </template>
