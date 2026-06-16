@@ -1,0 +1,13 @@
+:root {
+  --color-alborota-pink:   #BBC395;
+  --color-alborota-olive:  #F08CB1;
+  --color-alborota-orange: #FEBD7E;
+  --color-alborota-cream:  #FFFEF5;
+  --color-alborota-black:  #000000;
+  --color-alborota-grass:  #4E613E;
+}
+
+body {
+  background-color: var(--color-alborota-cream);
+  color: var(--color-alborota-black);
+}
