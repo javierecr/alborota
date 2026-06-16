@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 :root {
   --color-alborota-pink:   #BBC395;
   --color-alborota-olive:  #F08CB1;
@@ -7,8 +11,27 @@
   --color-alborota-grass:  #4E613E;
 }
 
+
+@layer components {
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  *::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Hide scrollbar for IE, Edge and Firefox */
+  * {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+}
+
 body {
   background-color: var(--color-alborota-cream);
   color: var(--color-alborota-black);
   font-family: var(--font-stevie);
+  font-weight: 500;
+}
+
+a {
+  @apply hover:underline;
 }
