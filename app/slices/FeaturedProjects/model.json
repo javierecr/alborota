@@ -36,42 +36,29 @@
             "label": "Projects",
             "repeat": true,
             "fields": {
-              "image": {
-                "type": "Image",
+              "project": {
+                "type": "Link",
                 "config": {
-                  "label": "Image",
-                  "constraint": {},
-                  "thumbnails": []
-                }
-              },
-              "title": {
-                "type": "Text",
-                "config": {
-                  "label": "Title",
-                  "placeholder": ""
-                }
-              },
-              "description": {
-                "type": "StructuredText",
-                "config": {
-                  "label": "Description",
-                  "placeholder": "",
-                  "allowTargetBlank": true,
-                  "single": "paragraph,hyperlink"
-                }
-              },
-              "tags": {
-                "type": "Text",
-                "config": {
-                  "label": "Tags (comma-separated)",
-                  "placeholder": "Ej: Ramos de boda, Papel picado, Decoraciones"
-                }
-              },
-              "year": {
-                "type": "Number",
-                "config": {
-                  "label": "Year",
-                  "placeholder": ""
+                  "label": "Project",
+                  "select": "document",
+                  "repeat": false,
+                  "customtypes": [
+                    {
+                      "id": "project",
+                      "fields": [
+                        "image",
+                        "title",
+                        "description",
+                        "year",
+                        {
+                          "id": "tags",
+                          "fields": [
+                            "tag"
+                          ]
+                        }
+                      ]
+                    }
+                  ]
                 }
               }
             }

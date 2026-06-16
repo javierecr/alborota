@@ -24,67 +24,14 @@
 						"__TYPE__": "GroupItemContent",
 						"value": [
 							[
-								"image",
+								"project",
 								{
-									"origin": {
-										"id": "main",
-										"url": "https://images.unsplash.com/photo-1547394765-185e1e68f34e",
-										"width": 6000,
-										"height": 4000
-									},
-									"url": "https://images.unsplash.com/photo-1547394765-185e1e68f34e",
-									"width": 6000,
-									"height": 4000,
-									"edit": {
-										"zoom": 1,
-										"crop": {
-											"x": 0,
-											"y": 0
-										},
-										"background": "transparent"
-									},
-									"alt": "cowboy",
-									"credits": null,
-									"__TYPE__": "ImageContent",
-									"thumbnails": {}
-								}
-							],
-							[
-								"title",
-								{
-									"__TYPE__": "FieldContent",
-									"value": "package",
-									"type": "Text"
-								}
-							],
-							[
-								"description",
-								{
-									"__TYPE__": "StructuredTextContent",
-									"value": [
-										{
-											"type": "paragraph",
-											"content": {
-												"text": "Aute enim do nulla dolore. Exercitation cupidatat mollit incididunt eiusmod magna ut voluptate ullamco exercitation nisi excepteur aute."
-											}
-										}
-									]
-								}
-							],
-							[
-								"year",
-								{
-									"__TYPE__": "FieldContent",
-									"value": "97",
-									"type": "Number"
-								}
-							],
-							[
-								"tags",
-								{
-									"__TYPE__": "FieldContent",
-									"value": "direction",
-									"type": "Text"
+									"key": "2f6e3b69-5d28-4a62-9833-2b421463aa45",
+									"__TYPE__": "LinkContent",
+									"value": {
+										"__TYPE__": "DocumentLink",
+										"id": "mock_document_id"
+									}
 								}
 							]
 						]
