@@ -1,5 +1,5 @@
 @font-face {
-  font-family: 'StevieSansBlack';
+  font-family: 'StevieSans';
   src:
     url('/typeface/StevieSansBlack.woff2') format('woff2'),
     url('/typeface/StevieSansBlack.woff') format('woff');
@@ -39,7 +39,7 @@
 }
 
 @font-face {
-  font-family: 'StevieSansLight';
+  font-family: 'StevieSans';
   src:
     url('/typeface/StevieSansLight.woff2') format('woff2'),
     url('/typeface/StevieSansLight.woff') format('woff');
@@ -49,7 +49,7 @@
 }
 
 @font-face {
-  font-family: 'StevieSansMedium';
+  font-family: 'StevieSans';
   src:
     url('/typeface/StevieSansMedium.woff2') format('woff2'),
     url('/typeface/StevieSansMedium.woff') format('woff');

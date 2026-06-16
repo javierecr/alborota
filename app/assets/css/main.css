@@ -3,12 +3,12 @@
 @tailwind utilities;
 
 :root {
-  --color-alborota-pink:   #BBC395;
-  --color-alborota-olive:  #F08CB1;
-  --color-alborota-orange: #FEBD7E;
-  --color-alborota-cream:  #FFFEF5;
-  --color-alborota-black:  #000000;
-  --color-alborota-grass:  #4E613E;
+  --color-alborota-olive:   187 195 149;
+  --color-alborota-pink:  240 140 177;
+  --color-alborota-orange: 254 189 126;
+  --color-alborota-cream:  255 254 245;
+  --color-alborota-beige:  254 249 245;
+  --color-alborota-grass:  78 97 62;
 }
 
 
