@@ -1,2 +1,5 @@
-User-Agent: *
-Disallow:
+User-agent: *
+Allow: /
+Disallow: /slice-simulator
+
+Sitemap: https://alborota.com/sitemap.xml
