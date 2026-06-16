@@ -1,13 +1,26 @@
+# example netlify.toml
 [build]
   command = "npm run build"
+  functions = "netlify/functions"
   publish = "dist"
 
-[build.environment]
-  NODE_VERSION = "22"
+  ## Uncomment to use this redirect for Single Page Applications like create-react-app.
+  ## Not needed for static site generators.
+  #[[redirects]]
+  #  from = "/*"
+  #  to = "/index.html"
+  #  status = 200
 
-[[headers]]
-  for = "/*"
-  [headers.values]
-    X-Frame-Options = "DENY"
-    X-Content-Type-Options = "nosniff"
-    Referrer-Policy = "strict-origin-when-cross-origin"
+  ## (optional) Settings for Netlify Dev
+  ## https://github.com/netlify/cli/blob/main/docs/netlify-dev.md#project-detection
+  #[dev]
+  #  command = "yarn start" # Command to start your dev server
+  #  port = 3000 # Port that the dev server will be listening on
+  #  publish = "dist" # Folder with the static content for _redirect file
+
+  ## more info on configuring this file: https://ntl.fyi/file-based-build-config
+
+  [build.environment]
+  NODE_VERSION = "22"
+  # Prevent secrets from being included in build output
+  SECRETS_SCAN_OMIT_KEYS = "SHOPIFY_STOREFRONT_ACCESS_TOKEN,SHOPIFY_PRIVATE_ACCESS_TOKEN,NUXT_PUBLIC_FORMSPARK_FORM_ID" 
