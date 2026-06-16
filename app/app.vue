@@ -1,6 +1,10 @@
+<script setup>
+const { restore } = useCart();
+onMounted(() => restore());
+</script>
+
 <template>
-  <div>
-    <NuxtRouteAnnouncer />
-    <NuxtWelcome />
-  </div>
+  <NuxtLayout>
+    <NuxtPage />
+  </NuxtLayout>
 </template>
