@@ -1,30 +1,39 @@
 <script setup>
-
 import Cart from '~/assets/icons/cart.svg';
 import Search from '~/assets/icons/search.svg';
 import User from '~/assets/icons/user.svg';
 
-const route = useRoute();
-// TODO: fetch header singleton from Prismic
+const prismic = usePrismic();
+
+const { data, error } = await useAsyncData('$header', async () => {
+  const doc = await prismic.client.getSingle('header');
+  return { doc };
+});
+
+if (error.value) {
+  throw createError({ statusCode: 404, message: 'Página no encontrada' });
+}
+
+const doc = computed(() => data.value?.doc);
+usePrismicMetadata(doc);
 </script>
 
 <template>
-  <header class="fixed top-0 left-0 right-0 z-50 flex items-center justify-between gap-4 px-6 py-2">
+  <header class="fixed top-0 left-0 right-0 z-50 flex items-center justify-between gap-4 px-6 py-2 bg-alborota-cream">
     <NuxtLink to="/" aria-label="Inicio">
-      <img src="assets/img/logo.png" alt="Alborota" class="w-auto h-[4.5rem]" />
+      <PrismicImage class="w-auto h-[4.5rem]"  :field="doc?.data.logo" />
     </NuxtLink>
     <nav aria-label="Navegación principal" class="flex items-center gap-16">
-      <NuxtLink class="font-abc uppercase hover:underline" active-class="underline" to="/tienda">Tienda</NuxtLink>
-      <NuxtLink class="font-abc uppercase hover:underline" active-class="underline" to="/galeria">Galería</NuxtLink>
-      <NuxtLink class="font-abc uppercase hover:underline" active-class="underline" to="/nosotros">Nosotros</NuxtLink>
-      <NuxtLink class="font-abc uppercase hover:underline" active-class="underline" to="/cotizar">Cotizar</NuxtLink>
+      <PrismicLink v-for="link in doc?.data.navigation" :key="link.id" class="font-abc uppercase hover:underline" active-class="underline" :field="link.link">
+        {{ link.label }}
+      </PrismicLink>
     </nav>
     <div class="flex items-center gap-9">
       <button class="hover:scale-[1.1] transform-origin-center transition-transform duration-300">
-        <User class="w-auto h-4" />
+        <Search class="w-auto h-4.5" />
       </button>
       <button class="hover:scale-[1.1] transform-origin-center transition-transform duration-300">
-        <Search class="w-auto h-4.5" />
+        <User class="w-auto h-4" />
       </button>
       <button class="hover:scale-[1.1] transform-origin-center transition-transform duration-300">
         <Cart class="w-auto h-4" />
