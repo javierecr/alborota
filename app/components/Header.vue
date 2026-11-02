@@ -15,7 +15,6 @@ if (error.value) {
 }
 
 const doc = computed(() => data.value?.doc);
-usePrismicMetadata(doc);
 </script>
 
 <template>

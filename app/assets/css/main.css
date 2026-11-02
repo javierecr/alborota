@@ -9,6 +9,9 @@
   --color-alborota-cream:  255 254 245;
   --color-alborota-beige:  254 249 245;
   --color-alborota-grass:  78 97 62;
+  --color-alborota-black:  0 0 0;
+  --color-alborota-paper:  246 246 239; /* #f6f6ef — paper chip background */
+  --color-alborota-stone:  227 228 219; /* #e3e4db — CTA chip background */
 }
 
 
@@ -23,11 +26,25 @@
     -ms-overflow-style: none; /* IE and Edge */
     scrollbar-width: none; /* Firefox */
   }
+
+  /*
+   * Hand-drawn "paper chip" shapes. Percentages are derived from the Figma
+   * SVG paths so the skew matches the design at any size.
+   */
+  .chip-paper {
+    background-color: rgb(255 255 255 / 0.9);
+    clip-path: polygon(0.43% 0%, 100% 14.53%, 99.62% 100%, 0% 96.62%);
+  }
+
+  .chip-paper-wide {
+    background-color: rgb(255 255 255 / 0.9);
+    clip-path: polygon(0.28% 0%, 100% 9.2%, 96.3% 100%, 0% 100%);
+  }
 }
 
 body {
   background-color: var(--color-alborota-cream);
-  color: var(--color-alborota-black);
+  color: rgb(var(--color-alborota-black));
   @apply font-sans;
   font-weight: 400;
 }

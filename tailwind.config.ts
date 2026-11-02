@@ -10,6 +10,8 @@ export default {
         'alborota-black':  'rgb(var(--color-alborota-black) / <alpha-value>)',
         'alborota-grass':  'rgb(var(--color-alborota-grass) / <alpha-value>)',
         'alborota-beige':  'rgb(var(--color-alborota-beige) / <alpha-value>)',
+        'alborota-paper':  'rgb(var(--color-alborota-paper) / <alpha-value>)',
+        'alborota-stone':  'rgb(var(--color-alborota-stone) / <alpha-value>)',
       },
       fontFamily: {
         sans: ['StevieSans', 'sans-serif'],
