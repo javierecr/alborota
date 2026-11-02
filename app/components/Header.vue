@@ -24,7 +24,7 @@ usePrismicMetadata(doc);
       <PrismicImage class="w-auto h-[4.5rem]"  :field="doc?.data.logo" />
     </NuxtLink>
     <nav aria-label="Navegación principal" class="flex items-center gap-16">
-      <PrismicLink v-for="link in doc?.data.navigation" :key="link.id" class="font-abc uppercase hover:underline" active-class="underline" :field="link.link">
+      <PrismicLink v-for="link in doc?.data.navigation" :key="link.id" class="font-abc font-bold uppercase hover:underline" active-class="underline" :field="link.link">
         {{ link.label }}
       </PrismicLink>
     </nav>

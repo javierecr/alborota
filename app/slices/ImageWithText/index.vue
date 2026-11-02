@@ -15,7 +15,7 @@ defineProps(getSliceComponentProps<Content.ImageWithTextSlice>());
       <PrismicImage class="w-full h-full object-cover" :field="slice.primary.image" />
     </div>
     <div class="flex flex-col gap-4 justify-start">
-      <h2 class="p-3 border-[0.2px] border-alborota-black bg-alborota-beige/90 text-[2.75rem] !leading-[1.3] font-abc max-w-[12ch] origin-[left_top] md:origin-[left_bottom] md:translate-x-[-20%] rotate-[-10deg]" >
+      <h2 class="p-3 border-[0.2px] border-alborota-black bg-alborota-beige/90 text-[2.75rem] !leading-[1.3] font-abc font-bold max-w-[12ch] origin-[left_top] md:origin-[left_bottom] md:translate-x-[-20%] rotate-[-10deg]" >
         {{ slice.primary.heading }}
       </h2>
       <div class="text-xl font-stevie-book">

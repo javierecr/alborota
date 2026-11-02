@@ -28,8 +28,8 @@
 body {
   background-color: var(--color-alborota-cream);
   color: var(--color-alborota-black);
-  font-family: var(--font-stevie);
-  font-weight: 500;
+  @apply font-sans;
+  font-weight: 400;
 }
 
 a {

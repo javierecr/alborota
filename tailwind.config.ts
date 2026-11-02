@@ -12,9 +12,10 @@ export default {
         'alborota-beige':  'rgb(var(--color-alborota-beige) / <alpha-value>)',
       },
       fontFamily: {
-        stevie:    ['StevieSans', 'sans-serif'],
+        sans: ['StevieSans', 'sans-serif'],
+        stevie: ['StevieSans', 'sans-serif'],
         'stevie-book': ['StevieSansBook', 'serif'],
-        abc:   ['ABC Diatype Unlicensed Trial', 'serif'],
+        abc: ['ABC Diatype Extended', 'sans-serif'],
       },
     },
   },

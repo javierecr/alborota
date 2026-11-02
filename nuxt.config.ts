@@ -12,11 +12,33 @@ export default defineNuxtConfig({
     'nuxt-viewport',
     '@nuxt/image',
     '@nuxtjs/shopify',
+    '@nuxt/fonts',
   ],
 
-  css: ['~/assets/css/main.css', '~/assets/css/typeface.css'],
+  css: ['~/assets/css/main.css'],
 
+  app: {
+    head: {
+      link: [
+        {
+          rel: 'preload',
+          href: '/typeface/StevieSans.woff2',
+          as: 'font',
+          type: 'font/woff2',
+          crossorigin: 'anonymous',
+        },
+      ],
+    },
+  },
 
+  fonts: {
+    families: [
+      { name: 'StevieSans', src: '/typeface/StevieSans.woff2', weight: 400, global: true },
+      { name: 'StevieSans', src: '/typeface/StevieSans-Bold.woff2', weight: 700, global: true },
+      { name: 'StevieSansBook', src: '/typeface/StevieSansBook.woff2', weight: 400, global: true },
+      { name: 'ABC Diatype Extended', src: '/typeface/ABCDiatypeExtended-Bold.woff2', weight: 700, global: true },
+    ],
+  },
 
   prismic: {
     endpoint: repositoryName,

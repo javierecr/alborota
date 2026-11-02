@@ -19,7 +19,7 @@ const backgroundImage = computed(() => doc.value?.data.bg_image.url);
     <div class="grid md:grid-cols-2 gap-4">
       <!-- Footer content -->
        <div class="grid md:flex justify-between gap-4">
-         <div v-for="block in doc?.data.blocks" :key="block.id" class="font-xs !leading-[1.3] flex flex-col gap-3">
+         <div v-for="block in doc?.data.blocks" :key="block.id" class="text-xs !leading-[1.3] flex flex-col gap-3">
            <h2  class="bg-alborota-cream py-2 px-3 uppercase">{{ block.title }}</h2>
            <div class="bg-alborota-cream py-2 px-3">
              <PrismicRichText :field="block.content" />
@@ -27,7 +27,7 @@ const backgroundImage = computed(() => doc.value?.data.bg_image.url);
          </div>
        </div>
       <div class="flex max-md:flex-col md:justify-end items-start">
-        <PrismicLink v-for="link in doc?.data.legal_links" :key="link.id" class="font-xs !leading-[1.3] flex flex-col gap-3 bg-alborota-cream py-2 px-3 uppercase" :field="link.link">
+        <PrismicLink v-for="link in doc?.data.legal_links" :key="link.id" class="text-xs !leading-[1.3] flex flex-col gap-3 bg-alborota-cream py-2 px-3 uppercase" :field="link.link">
           {{ link.label }}
         </PrismicLink>
       </div>
