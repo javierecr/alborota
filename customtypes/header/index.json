@@ -1,30 +1,40 @@
 {
-  "id": "header",
   "format": "custom",
-  "label": "Header",
-  "repeatable": false,
+  "id": "header",
   "json": {
     "Main": {
       "logo": {
-        "type": "Image",
-        "config": { "label": "Logo", "constraint": {}, "thumbnails": [] }
+        "config": {
+          "constraint": {},
+          "label": "Logo",
+          "thumbnails": []
+        },
+        "type": "Image"
       },
       "navigation": {
-        "type": "Group",
         "config": {
-          "label": "Navigation Links",
           "fields": {
             "label": {
-              "type": "Text",
-              "config": { "label": "Label" }
+              "config": {
+                "label": "Label"
+              },
+              "type": "Text"
             },
             "link": {
-              "type": "Link",
-              "config": { "label": "Link" }
+              "config": {
+                "label": "Link",
+                "select": null
+              },
+              "type": "Link"
             }
-          }
-        }
+          },
+          "label": "Navigation Links"
+        },
+        "type": "Group"
       }
     }
-  }
+  },
+  "label": "Header",
+  "repeatable": false,
+  "status": true
 }

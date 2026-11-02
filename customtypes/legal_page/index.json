@@ -1,37 +1,52 @@
 {
-  "id": "legal_page",
   "format": "page",
-  "label": "Legal Page",
-  "repeatable": true,
+  "id": "legal_page",
   "json": {
     "Main": {
       "uid": {
-        "type": "UID",
-        "config": { "label": "UID" }
+        "config": {
+          "label": "UID"
+        },
+        "type": "UID"
       },
       "page_title": {
-        "type": "Text",
-        "config": { "label": "Page Title" }
+        "config": {
+          "label": "Page Title"
+        },
+        "type": "Text"
       },
       "slices": {
-        "type": "Slices",
+        "config": {
+          "choices": {}
+        },
         "fieldset": "Slice Zone",
-        "config": { "choices": {} }
+        "type": "Slices"
       }
     },
     "SEO & Metadata": {
       "meta_title": {
-        "type": "Text",
-        "config": { "label": "Meta Title" }
+        "config": {
+          "label": "Meta Title"
+        },
+        "type": "Text"
       },
       "meta_description": {
-        "type": "Text",
-        "config": { "label": "Meta Description" }
+        "config": {
+          "label": "Meta Description"
+        },
+        "type": "Text"
       },
       "meta_image": {
-        "type": "Image",
-        "config": { "label": "Meta Image", "constraint": {}, "thumbnails": [] }
+        "config": {
+          "constraint": {},
+          "label": "Meta Image",
+          "thumbnails": []
+        },
+        "type": "Image"
       }
     }
-  }
+  },
+  "label": "Legal Page",
+  "repeatable": true,
+  "status": true
 }

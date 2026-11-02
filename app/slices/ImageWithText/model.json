@@ -1,43 +1,43 @@
 {
-  "id": "image_with_text",
-  "type": "SharedSlice",
-  "name": "ImageWithText",
   "description": "ImageWithText",
+  "id": "image_with_text",
+  "name": "ImageWithText",
+  "type": "SharedSlice",
   "variations": [
     {
-      "id": "default",
-      "name": "Default",
-      "docURL": "...",
-      "version": "initial",
       "description": "Default",
-      "imageUrl": "",
+      "docURL": "...",
+      "id": "default",
+      "imageUrl": "https://images.prismic.io/alborota/shared-slices/image_with_text/default/11efac13651d0860b4a43556c3a4dcf3ccefde98.png?auto=compress%2Cformat",
+      "items": {},
+      "name": "Default",
       "primary": {
         "image": {
-          "type": "Image",
           "config": {
-            "label": "Image",
             "constraint": {},
+            "label": "Image",
             "thumbnails": []
-          }
+          },
+          "type": "Image"
         },
         "heading": {
-          "type": "Text",
           "config": {
             "label": "Heading",
             "placeholder": ""
-          }
+          },
+          "type": "Text"
         },
         "text": {
-          "type": "StructuredText",
           "config": {
-            "label": "Text",
-            "placeholder": "",
             "allowTargetBlank": true,
-            "multi": "paragraph,hyperlink"
-          }
+            "label": "Text",
+            "multi": "paragraph,hyperlink",
+            "placeholder": ""
+          },
+          "type": "StructuredText"
         }
       },
-      "items": {}
+      "version": "initial"
     }
   ]
 }

@@ -1,5 +1,4 @@
-import { routes } from './prismic/routes';
-import { repositoryName } from './slicemachine.config.json';
+import prismicConfig from './prismic.config.json';
 
 export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
@@ -41,9 +40,9 @@ export default defineNuxtConfig({
   },
 
   prismic: {
-    endpoint: repositoryName,
+    endpoint: prismicConfig.repositoryName,
     clientConfig: {
-      routes,
+      routes: prismicConfig.routes,
     },
   },
 

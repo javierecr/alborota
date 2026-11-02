@@ -1,33 +1,47 @@
 {
-  "id": "tienda",
   "format": "page",
-  "label": "Tienda",
-  "repeatable": false,
+  "id": "tienda",
   "json": {
     "Main": {
       "page_title": {
-        "type": "Text",
-        "config": { "label": "Page Title", "placeholder": "Tienda" }
+        "config": {
+          "label": "Page Title",
+          "placeholder": "Tienda"
+        },
+        "type": "Text"
       },
       "slices": {
-        "type": "Slices",
+        "config": {
+          "choices": {}
+        },
         "fieldset": "Slice Zone",
-        "config": { "choices": {} }
+        "type": "Slices"
       }
     },
     "SEO & Metadata": {
       "meta_title": {
-        "type": "Text",
-        "config": { "label": "Meta Title" }
+        "config": {
+          "label": "Meta Title"
+        },
+        "type": "Text"
       },
       "meta_description": {
-        "type": "Text",
-        "config": { "label": "Meta Description" }
+        "config": {
+          "label": "Meta Description"
+        },
+        "type": "Text"
       },
       "meta_image": {
-        "type": "Image",
-        "config": { "label": "Meta Image", "constraint": {}, "thumbnails": [] }
+        "config": {
+          "constraint": {},
+          "label": "Meta Image",
+          "thumbnails": []
+        },
+        "type": "Image"
       }
     }
-  }
+  },
+  "label": "Tienda",
+  "repeatable": false,
+  "status": true
 }

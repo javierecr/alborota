@@ -1,41 +1,60 @@
 {
-  "id": "coleccion",
   "format": "page",
-  "label": "Colección",
-  "repeatable": true,
+  "id": "coleccion",
   "json": {
     "Main": {
       "uid": {
-        "type": "UID",
-        "config": { "label": "UID" }
+        "config": {
+          "label": "UID"
+        },
+        "type": "UID"
       },
       "page_title": {
-        "type": "Text",
-        "config": { "label": "Page Title", "placeholder": "Nombre de la colección" }
+        "config": {
+          "label": "Page Title",
+          "placeholder": "Nombre de la colección"
+        },
+        "type": "Text"
       },
       "shopify_collection_id": {
-        "type": "Text",
-        "config": { "label": "Shopify Collection ID", "placeholder": "gid://shopify/Collection/..." }
+        "config": {
+          "label": "Shopify Collection ID",
+          "placeholder": "gid://shopify/Collection/..."
+        },
+        "type": "Text"
       },
       "slices": {
-        "type": "Slices",
+        "config": {
+          "choices": {}
+        },
         "fieldset": "Slice Zone",
-        "config": { "choices": {} }
+        "type": "Slices"
       }
     },
     "SEO & Metadata": {
       "meta_title": {
-        "type": "Text",
-        "config": { "label": "Meta Title" }
+        "config": {
+          "label": "Meta Title"
+        },
+        "type": "Text"
       },
       "meta_description": {
-        "type": "Text",
-        "config": { "label": "Meta Description" }
+        "config": {
+          "label": "Meta Description"
+        },
+        "type": "Text"
       },
       "meta_image": {
-        "type": "Image",
-        "config": { "label": "Meta Image", "constraint": {}, "thumbnails": [] }
+        "config": {
+          "constraint": {},
+          "label": "Meta Image",
+          "thumbnails": []
+        },
+        "type": "Image"
       }
     }
-  }
+  },
+  "label": "Colección",
+  "repeatable": true,
+  "status": true
 }

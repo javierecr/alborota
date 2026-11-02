@@ -1,33 +1,33 @@
 {
-  "id": "featured_collection",
-  "type": "SharedSlice",
-  "name": "FeaturedCollection",
   "description": "FeaturedCollection",
+  "id": "featured_collection",
+  "name": "FeaturedCollection",
+  "type": "SharedSlice",
   "variations": [
     {
-      "id": "default",
-      "name": "Default",
-      "docURL": "...",
-      "version": "initial",
       "description": "Default",
-      "imageUrl": "",
+      "docURL": "...",
+      "id": "default",
+      "imageUrl": "https://images.prismic.io/alborota/shared-slices/featured_collection/default/80c43e769c9d5f8d71fd4f7a27dc4fe076daa1c7.png?auto=compress%2Cformat",
+      "items": {},
+      "name": "Default",
       "primary": {
         "heading": {
-          "type": "Text",
           "config": {
             "label": "Heading",
             "placeholder": ""
-          }
+          },
+          "type": "Text"
         },
         "shopify_collection_id": {
-          "type": "Number",
           "config": {
             "label": "Shopify Collection ID",
             "placeholder": ""
-          }
+          },
+          "type": "Number"
         }
       },
-      "items": {}
+      "version": "initial"
     }
   ]
 }

@@ -1,71 +1,71 @@
 {
-  "id": "featured_projects",
-  "type": "SharedSlice",
-  "name": "FeaturedProjects",
   "description": "FeaturedProjects",
+  "id": "featured_projects",
+  "name": "FeaturedProjects",
+  "type": "SharedSlice",
   "variations": [
     {
-      "id": "default",
-      "name": "Default",
-      "docURL": "...",
-      "version": "initial",
       "description": "Default",
-      "imageUrl": "",
+      "docURL": "...",
+      "id": "default",
+      "imageUrl": "https://images.prismic.io/alborota/shared-slices/featured_projects/default/fdce88ca9d43afe56ae89c31a021dab6e20c57b0.png?auto=compress%2Cformat",
+      "items": {},
+      "name": "Default",
       "primary": {
         "heading": {
-          "type": "Text",
           "config": {
             "label": "Heading",
             "placeholder": ""
-          }
+          },
+          "type": "Text"
         },
         "cta": {
-          "type": "Link",
           "config": {
-            "label": "CTA",
-            "placeholder": "",
-            "select": null,
             "allowTargetBlank": true,
             "allowText": true,
-            "repeat": false
-          }
+            "label": "CTA",
+            "placeholder": "",
+            "repeat": false,
+            "select": null
+          },
+          "type": "Link"
         },
         "projects": {
-          "type": "Group",
           "config": {
-            "label": "Projects",
-            "repeat": true,
             "fields": {
               "project": {
-                "type": "Link",
                 "config": {
-                  "label": "Project",
-                  "select": "document",
-                  "repeat": false,
                   "customtypes": [
                     {
-                      "id": "project",
                       "fields": [
                         "image",
                         "title",
                         "description",
                         "year",
                         {
-                          "id": "tags",
                           "fields": [
                             "tag"
-                          ]
+                          ],
+                          "id": "tags"
                         }
-                      ]
+                      ],
+                      "id": "project"
                     }
-                  ]
-                }
+                  ],
+                  "label": "Project",
+                  "repeat": false,
+                  "select": "document"
+                },
+                "type": "Link"
               }
-            }
-          }
+            },
+            "label": "Projects",
+            "repeat": true
+          },
+          "type": "Group"
         }
       },
-      "items": {}
+      "version": "initial"
     }
   ]
 }

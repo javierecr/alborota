@@ -1,70 +1,68 @@
 {
-  "id": "banner_with_text",
-  "type": "SharedSlice",
-  "name": "BannerWithText",
   "description": "BannerWithText",
+  "id": "banner_with_text",
+  "name": "BannerWithText",
+  "type": "SharedSlice",
   "variations": [
     {
-      "id": "default",
-      "name": "Default",
-      "docURL": "...",
-      "version": "initial",
       "description": "Default",
-      "imageUrl": "",
+      "docURL": "...",
+      "id": "default",
+      "imageUrl": "https://images.prismic.io/alborota/shared-slices/banner_with_text/default/7ae626789905efc2db934e0948d5c28557da6a60.png?auto=compress%2Cformat",
+      "items": {},
+      "name": "Default",
       "primary": {
         "image": {
-          "type": "Image",
           "config": {
-            "label": "Image",
             "constraint": {},
+            "label": "Image",
             "thumbnails": []
-          }
+          },
+          "type": "Image"
         },
         "image_height": {
-          "type": "Select",
           "config": {
+            "default_value": "1/0.6",
             "label": "Image Height",
-            "placeholder": "",
             "options": [
               "1/0.6",
               "Screen",
               "Auto"
             ],
-            "default_value": "1/0.6"
-          }
+            "placeholder": ""
+          },
+          "type": "Select"
         },
         "heading": {
-          "type": "Text",
           "config": {
             "label": "Heading",
             "placeholder": ""
-          }
+          },
+          "type": "Text"
         },
         "cta": {
-          "type": "Link",
           "config": {
-            "label": "CTA",
-            "placeholder": "",
-            "select": null,
             "allowTargetBlank": true,
             "allowText": true,
-            "repeat": false
-          }
+            "label": "CTA",
+            "placeholder": "",
+            "repeat": false,
+            "select": null
+          },
+          "type": "Link"
         },
         "text": {
-          "type": "StructuredText",
           "config": {
-            "label": "Text",
-            "placeholder": "",
             "allowTargetBlank": true,
-            "multi": "paragraph,hyperlink"
-          }
+            "label": "Text",
+            "multi": "paragraph,hyperlink",
+            "placeholder": ""
+          },
+          "type": "StructuredText"
         },
         "text_position": {
-          "type": "Select",
           "config": {
             "label": "Text Position",
-            "placeholder": "",
             "options": [
               "Left Top",
               "Center Top",
@@ -75,11 +73,13 @@
               "Left Bottom",
               "Center Bottom",
               "Right Bottom"
-            ]
-          }
+            ],
+            "placeholder": ""
+          },
+          "type": "Select"
         }
       },
-      "items": {}
+      "version": "initial"
     }
   ]
 }

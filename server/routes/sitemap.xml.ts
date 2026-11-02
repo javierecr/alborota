@@ -1,7 +1,6 @@
 import { createClient } from '@prismicio/client';
 import { seoConfig } from '~~/app/seo/config';
-import { routes } from '~~/prismic/routes.js';
-import { repositoryName } from '~~/slicemachine.config.json';
+import prismicConfig from '~~/prismic.config.json';
 
 interface SitemapEntry {
   loc: string;
@@ -36,7 +35,7 @@ const staticEntries: SitemapEntry[] = [
 ];
 
 async function loadDynamicEntries(): Promise<SitemapEntry[]> {
-  const client = createClient(repositoryName, { routes });
+  const client = createClient(prismicConfig.repositoryName, { routes: prismicConfig.routes });
   const [colecciones, productos] = await Promise.all([
     client.getAllByType('coleccion'),
     client.getAllByType('producto'),

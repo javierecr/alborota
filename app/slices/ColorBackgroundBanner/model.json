@@ -1,91 +1,91 @@
 {
-  "id": "color_background_banner",
-  "type": "SharedSlice",
-  "name": "ColorBackgroundBanner",
   "description": "ColorBackgroundBanner",
+  "id": "color_background_banner",
+  "name": "ColorBackgroundBanner",
+  "type": "SharedSlice",
   "variations": [
     {
-      "id": "default",
-      "name": "Default",
-      "docURL": "...",
-      "version": "initial",
       "description": "Default",
-      "imageUrl": "",
+      "docURL": "...",
+      "id": "default",
+      "imageUrl": "https://images.prismic.io/alborota/shared-slices/color_background_banner/default/56352d18c68640c95367d1aaf3e99dbc99b88d9d.png?auto=compress%2Cformat",
+      "items": {},
+      "name": "Default",
       "primary": {
         "image": {
-          "type": "Image",
           "config": {
-            "label": "Image",
             "constraint": {},
+            "label": "Image",
             "thumbnails": []
-          }
+          },
+          "type": "Image"
         },
         "text_blocks": {
-          "type": "Group",
           "config": {
-            "label": "Text blocks",
-            "repeat": true,
             "fields": {
               "text": {
-                "type": "StructuredText",
                 "config": {
+                  "allowTargetBlank": false,
                   "label": "Text",
                   "placeholder": "",
-                  "allowTargetBlank": false,
                   "single": "paragraph,hyperlink"
-                }
+                },
+                "type": "StructuredText"
               }
-            }
-          }
+            },
+            "label": "Text blocks",
+            "repeat": true
+          },
+          "type": "Group"
         }
       },
-      "items": {}
+      "version": "initial"
     },
     {
-      "id": "withHeadingAndCta",
-      "name": "With Heading and CTA",
-      "docURL": "...",
-      "version": "initial",
       "description": "Default",
-      "imageUrl": "",
+      "docURL": "...",
+      "id": "withHeadingAndCta",
+      "imageUrl": "https://images.prismic.io/alborota/shared-slices/color_background_banner/withHeadingAndCta/af04de3c23bc2d7c70cb5cf4beaaee0150863069.png?auto=compress%2Cformat",
+      "items": {},
+      "name": "With Heading and CTA",
       "primary": {
         "image": {
-          "type": "Image",
           "config": {
-            "label": "Image",
             "constraint": {},
+            "label": "Image",
             "thumbnails": []
-          }
+          },
+          "type": "Image"
         },
         "heading": {
-          "type": "Text",
           "config": {
             "label": "Heading",
             "placeholder": ""
-          }
+          },
+          "type": "Text"
         },
         "cta": {
-          "type": "Link",
           "config": {
-            "label": "CTA",
-            "placeholder": "",
-            "select": null,
             "allowTargetBlank": true,
             "allowText": true,
-            "repeat": false
-          }
+            "label": "CTA",
+            "placeholder": "",
+            "repeat": false,
+            "select": null
+          },
+          "type": "Link"
         },
         "text": {
-          "type": "StructuredText",
           "config": {
-            "label": "Text",
-            "placeholder": "",
             "allowTargetBlank": true,
-            "multi": "paragraph,hyperlink"
-          }
+            "label": "Text",
+            "multi": "paragraph,hyperlink",
+            "placeholder": ""
+          },
+          "type": "StructuredText"
         }
       },
-      "items": {}
+      "version": "initial"
     }
   ]
 }
