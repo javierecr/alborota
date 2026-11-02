@@ -93,6 +93,26 @@ const formattedPrice = computed(() => {
   return formatMoney(amount, currencyCode);
 });
 
+// Custom fields (message / delivery date / delivery place) for products tagged `personalizable`
+const isPersonalizable = computed(() => product.value?.tags?.includes('personalizable') ?? false);
+const customFields = reactive({ message: '', deliveryDate: '', deliveryPlace: '' });
+const customFieldsTouched = ref(false);
+const todayIso = new Date().toISOString().slice(0, 10);
+
+const customFieldsValid = computed(
+  () => !isPersonalizable.value || (!!customFields.deliveryDate && !!customFields.deliveryPlace.trim()),
+);
+
+const buildAttributes = () => {
+  if (!isPersonalizable.value) return undefined;
+  const attrs = [
+    { key: 'Mensaje Personalizado', value: customFields.message.trim() },
+    { key: 'Fecha de entrega', value: customFields.deliveryDate },
+    { key: 'Lugar de entrega', value: customFields.deliveryPlace.trim() },
+  ].filter((a) => a.value);
+  return attrs.length ? attrs : undefined;
+};
+
 const quantity = ref(1);
 const addingToCart = ref(false);
 const addedToCartSuccess = ref(false);
@@ -110,6 +130,9 @@ const addSelectedToCart = async () => {
     return;
   }
 
+  customFieldsTouched.value = true;
+  if (!customFieldsValid.value) return;
+
   try {
     addingToCart.value = true;
 
@@ -124,9 +147,14 @@ const addSelectedToCart = async () => {
       },
       image: product.value.featuredImage ?? selectedVariant.value.image ?? null,
       quantity: quantity.value,
+      attributes: buildAttributes(),
     });
 
     quantity.value = 1;
+    customFields.message = '';
+    customFields.deliveryDate = '';
+    customFields.deliveryPlace = '';
+    customFieldsTouched.value = false;
 
     await new Promise((resolve) => setTimeout(resolve, 350));
     addingToCart.value = false;
@@ -203,6 +231,47 @@ useSeoMeta({
               {{ value }}
             </button>
           </div>
+        </div>
+      </div>
+
+      <!-- Custom fields (personalizable products) -->
+      <div v-if="isPersonalizable" class="flex flex-col gap-4">
+        <div class="flex flex-col gap-2">
+          <label for="custom-message" class="text-sm font-medium">Mensaje Personalizado (opcional)</label>
+          <textarea
+            id="custom-message"
+            v-model="customFields.message"
+            rows="3"
+            maxlength="500"
+            class="w-full border rounded px-3 py-2 text-sm"
+          />
+        </div>
+        <div class="flex flex-col gap-2">
+          <label for="custom-date" class="text-sm font-medium">Fecha de entrega</label>
+          <input
+            id="custom-date"
+            v-model="customFields.deliveryDate"
+            type="date"
+            :min="todayIso"
+            required
+            class="w-full border rounded px-3 py-2 text-sm"
+          />
+          <p v-if="customFieldsTouched && !customFields.deliveryDate" class="text-xs text-red-600">
+            Elige una fecha de entrega.
+          </p>
+        </div>
+        <div class="flex flex-col gap-2">
+          <label for="custom-place" class="text-sm font-medium">Lugar de entrega</label>
+          <input
+            id="custom-place"
+            v-model="customFields.deliveryPlace"
+            type="text"
+            required
+            class="w-full border rounded px-3 py-2 text-sm"
+          />
+          <p v-if="customFieldsTouched && !customFields.deliveryPlace.trim()" class="text-xs text-red-600">
+            Indica el lugar de entrega.
+          </p>
         </div>
       </div>
 

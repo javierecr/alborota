@@ -1,9 +1,15 @@
 import { z } from 'zod';
 
+const attributeSchema = z.object({
+  key: z.string().min(1).max(100),
+  value: z.string().max(1000),
+});
+
 const bodySchema = z.object({
   lines: z.array(z.object({
     merchandiseId: z.string().min(1),
     quantity: z.number().int().min(1),
+    attributes: z.array(attributeSchema).optional(),
   })).min(1),
 });
 

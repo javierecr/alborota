@@ -1,8 +1,14 @@
 import { z } from 'zod';
 
+const attributeSchema = z.object({
+  key: z.string().min(1).max(100),
+  value: z.string().max(1000),
+});
+
 const bodySchema = z.object({
   variantId: z.string().min(1),
   quantity: z.number().int().min(1),
+  attributes: z.array(attributeSchema).optional(),
 });
 
 const cartCreateMutation = `#graphql
@@ -15,9 +21,9 @@ const cartCreateMutation = `#graphql
 `;
 
 export default defineEventHandler(async (event) => {
-  const { variantId, quantity } = await readValidatedBody(event, bodySchema.parse);
+  const { variantId, quantity, attributes } = await readValidatedBody(event, bodySchema.parse);
   const storefront = useStorefront();
-  const lines = [{ merchandiseId: variantId, quantity }];
+  const lines = [{ merchandiseId: variantId, quantity, ...(attributes?.length ? { attributes } : {}) }];
   const response = await storefront.request(cartCreateMutation, { variables: { input: { lines } } });
   const result = response.data?.cartCreate;
   if (!result) throw createError({ statusCode: 500, statusMessage: 'Failed to create cart' });

@@ -1,7 +1,7 @@
 const productQuery = `#graphql
   query GetProduct($handle: String!) {
     product(handle: $handle) {
-      id handle title description descriptionHtml
+      id handle title description descriptionHtml tags
       featuredImage { url altText }
       images(first: 10) { nodes { id url altText } }
       options { id name values }

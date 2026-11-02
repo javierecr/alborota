@@ -12,6 +12,7 @@ export type Variant = {
 
 export type Product = {
   id: string; handle: string; title: string;
+  tags?: string[];
   description?: string | null; descriptionHtml?: string | null;
   featuredImage?: ProductImage | null;
   images?: { nodes: ProductImage[] };

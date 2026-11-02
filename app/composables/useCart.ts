@@ -1,3 +1,8 @@
+export interface CartAttribute {
+  key: string;
+  value: string;
+}
+
 export interface CartItem {
   variantId: string;
   productHandle: string;
@@ -6,7 +11,14 @@ export interface CartItem {
   price: { amount: string; currencyCode: string };
   image?: { url: string; altText?: string | null } | null;
   quantity: number;
+  attributes?: CartAttribute[];
 }
+
+// Identifies a cart line: same variant with different attributes (message, date, place) are separate lines.
+export const lineKey = (item: Pick<CartItem, 'variantId' | 'attributes'>): string =>
+  item.attributes?.length
+    ? `${item.variantId}|${item.attributes.map(a => `${a.key}=${a.value}`).join('&')}`
+    : item.variantId;
 
 const CART_KEY = 'alborota-cart';
 const CART_VERSION = 1;
@@ -44,7 +56,7 @@ export const useCart = () => {
   function closeCart() { isCartOpen.value = false; }
 
   function addToCart(item: CartItem) {
-    const existing = items.value.find(i => i.variantId === item.variantId);
+    const existing = items.value.find(i => lineKey(i) === lineKey(item));
     if (existing) {
       existing.quantity += item.quantity;
     } else {
@@ -54,14 +66,14 @@ export const useCart = () => {
     openCart();
   }
 
-  function removeFromCart(variantId: string) {
-    items.value = items.value.filter(i => i.variantId !== variantId);
+  function removeFromCart(key: string) {
+    items.value = items.value.filter(i => lineKey(i) !== key);
     persist();
   }
 
-  function updateQuantity(variantId: string, quantity: number) {
-    if (quantity <= 0) return removeFromCart(variantId);
-    const idx = items.value.findIndex(i => i.variantId === variantId);
+  function updateQuantity(key: string, quantity: number) {
+    if (quantity <= 0) return removeFromCart(key);
+    const idx = items.value.findIndex(i => lineKey(i) === key);
     if (idx === -1) return;
     const item = items.value[idx];
     if (!item) return;
@@ -77,7 +89,11 @@ export const useCart = () => {
   }
 
   async function createCheckout(): Promise<string> {
-    const lines = items.value.map(i => ({ merchandiseId: i.variantId, quantity: i.quantity }));
+    const lines = items.value.map(i => ({
+      merchandiseId: i.variantId,
+      quantity: i.quantity,
+      ...(i.attributes?.length ? { attributes: i.attributes } : {}),
+    }));
     const { checkoutUrl } = await $fetch<{ checkoutId: string; checkoutUrl: string }>('/api/checkout', {
       method: 'POST',
       body: { lines },
@@ -85,10 +101,10 @@ export const useCart = () => {
     return checkoutUrl;
   }
 
-  async function createDirectCheckout(variantId: string, quantity: number): Promise<string> {
+  async function createDirectCheckout(variantId: string, quantity: number, attributes?: CartAttribute[]): Promise<string> {
     const { checkoutUrl } = await $fetch<{ checkoutId: string; checkoutUrl: string }>('/api/checkout/direct', {
       method: 'POST',
-      body: { variantId, quantity },
+      body: { variantId, quantity, attributes },
     });
     return checkoutUrl;
   }
