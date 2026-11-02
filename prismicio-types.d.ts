@@ -225,25 +225,25 @@ export interface FooterDocumentDataBlocksItem {
 }
 
 /**
- * Item in *Footer → Legal Links*
+ * Item in *Footer → Links*
  */
-export interface FooterDocumentDataLegalLinksItem {
+export interface FooterDocumentDataLinksItem {
 	/**
-	 * Label field in *Footer → Legal Links*
+	 * Label field in *Footer → Links*
 	 *
 	 * - **Field Type**: Text
 	 * - **Placeholder**: *None*
-	 * - **API ID Path**: footer.legal_links[].label
+	 * - **API ID Path**: footer.links[].label
 	 * - **Documentation**: https://prismic.io/docs/fields/text
 	 */
 	label: prismic.KeyTextField;
 	
 	/**
-	 * Link field in *Footer → Legal Links*
+	 * Link field in *Footer → Links*
 	 *
 	 * - **Field Type**: Link
 	 * - **Placeholder**: *None*
-	 * - **API ID Path**: footer.legal_links[].link
+	 * - **API ID Path**: footer.links[].link
 	 * - **Documentation**: https://prismic.io/docs/fields/link
 	 */
 	link: prismic.LinkField<string, string, unknown, prismic.FieldState, never>;
@@ -265,17 +265,6 @@ interface FooterDocumentData {
 	bg_image: prismic.ImageField<never>;
 	
 	/**
-	 * Tagline field in *Footer*
-	 *
-	 * - **Field Type**: Text
-	 * - **Placeholder**: *None*
-	 * - **API ID Path**: footer.tagline
-	 * - **Tab**: Main
-	 * - **Documentation**: https://prismic.io/docs/fields/text
-	 */
-	tagline: prismic.KeyTextField;
-	
-	/**
 	 * Footer Blocks field in *Footer*
 	 *
 	 * - **Field Type**: Group
@@ -287,15 +276,15 @@ interface FooterDocumentData {
 	blocks: prismic.GroupField<Simplify<FooterDocumentDataBlocksItem>>;
 	
 	/**
-	 * Legal Links field in *Footer*
+	 * Links field in *Footer*
 	 *
 	 * - **Field Type**: Group
 	 * - **Placeholder**: *None*
-	 * - **API ID Path**: footer.legal_links[]
+	 * - **API ID Path**: footer.links[]
 	 * - **Tab**: Main
 	 * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
 	 */
-	legal_links: prismic.GroupField<Simplify<FooterDocumentDataLegalLinksItem>>;
+	links: prismic.GroupField<Simplify<FooterDocumentDataLinksItem>>;
 }
 
 /**
@@ -1447,7 +1436,7 @@ declare module "@prismicio/client" {
 			FooterDocument,
 			FooterDocumentData,
 			FooterDocumentDataBlocksItem,
-			FooterDocumentDataLegalLinksItem,
+			FooterDocumentDataLinksItem,
 			GaleriaDocument,
 			GaleriaDocumentData,
 			GaleriaDocumentDataSlicesSlice,

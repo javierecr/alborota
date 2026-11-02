@@ -1,71 +1,64 @@
 {
-  "id": "footer",
   "format": "custom",
-  "label": "Footer",
-  "repeatable": false,
-  "status": true,
+  "id": "footer",
   "json": {
     "Main": {
       "bg_image": {
-        "type": "Image",
         "config": {
-          "label": "Background Image",
           "constraint": {},
+          "label": "Background Image",
           "thumbnails": []
-        }
-      },
-      "tagline": {
-        "type": "Text",
-        "config": {
-          "label": "Tagline"
-        }
+        },
+        "type": "Image"
       },
       "blocks": {
-        "type": "Group",
         "config": {
-          "label": "Footer Blocks",
-          "repeat": true,
           "fields": {
             "title": {
-              "type": "Text",
               "config": {
                 "label": "Title",
                 "placeholder": ""
-              }
+              },
+              "type": "Text"
             },
             "content": {
-              "type": "StructuredText",
               "config": {
-                "label": "Content",
-                "placeholder": "",
                 "allowTargetBlank": true,
-                "multi": "paragraph,hyperlink"
-              }
+                "label": "Content",
+                "multi": "paragraph,hyperlink",
+                "placeholder": ""
+              },
+              "type": "StructuredText"
             }
-          }
-        }
+          },
+          "label": "Footer Blocks",
+          "repeat": true
+        },
+        "type": "Group"
       },
-      "legal_links": {
-        "type": "Group",
+      "links": {
         "config": {
-          "label": "Legal Links",
           "fields": {
             "label": {
-              "type": "Text",
               "config": {
                 "label": "Label"
-              }
+              },
+              "type": "Text"
             },
             "link": {
-              "type": "Link",
               "config": {
-                "label": "Link",
-                "select": null
-              }
+                "label": "Link"
+              },
+              "type": "Link"
             }
-          }
-        }
+          },
+          "label": "Links"
+        },
+        "type": "Group"
       }
     }
-  }
+  },
+  "label": "Footer",
+  "repeatable": false,
+  "status": true
 }
