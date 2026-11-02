@@ -25,6 +25,14 @@
             "placeholder": ""
           },
           "type": "Number"
+        },
+        "cta": {
+          "config": {
+            "allowTargetBlank": true,
+            "allowText": true,
+            "label": "CTA"
+          },
+          "type": "Link"
         }
       },
       "version": "initial"

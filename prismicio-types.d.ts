@@ -1208,6 +1208,16 @@ export interface FeaturedCollectionSliceDefaultPrimary {
 	 * - **Documentation**: https://prismic.io/docs/fields/number
 	 */
 	shopify_collection_id: prismic.NumberField;
+	
+	/**
+	 * CTA field in *FeaturedCollection → Default → Primary*
+	 *
+	 * - **Field Type**: Link
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: featured_collection.default.primary.cta
+	 * - **Documentation**: https://prismic.io/docs/fields/link
+	 */
+	cta: prismic.LinkField<string, string, unknown, prismic.FieldState, never>;
 }
 
 /**
