@@ -22,5 +22,14 @@
 
   [build.environment]
   NODE_VERSION = "22"
-  # Prevent secrets from being included in build output
-  SECRETS_SCAN_OMIT_KEYS = "SHOPIFY_STOREFRONT_ACCESS_TOKEN,SHOPIFY_PRIVATE_ACCESS_TOKEN,NUXT_PUBLIC_FORMSPARK_FORM_ID" 
+  # Netlify's secrets scan fails the build when any env var value appears in the
+  # repo or build output. These keys are listed because their values are meant to
+  # be there, not because they are secret:
+  #   - SHOPIFY_STOREFRONT_ACCESS_TOKEN: the Storefront API token is public by design
+  #   - SHOPIFY_DOMAIN: the *.myshopify.com domain is in every public checkout URL
+  #     (and is the fallback default in scripts/*.mjs)
+  #   - NUXT_PUBLIC_*: bundled into the client/runtime config by definition
+  # SHOPIFY_PRIVATE_ACCESS_TOKEN is a real secret. It was already omitted here, which
+  # means the scan would NOT catch it leaking into the build; see whether it can be
+  # removed from this list. SHOPIFY_ADMIN_ACCESS_TOKEN is deliberately not listed.
+  SECRETS_SCAN_OMIT_KEYS = "SHOPIFY_STOREFRONT_ACCESS_TOKEN,SHOPIFY_PRIVATE_ACCESS_TOKEN,SHOPIFY_DOMAIN,NUXT_PUBLIC_FORMSPARK_FORM_ID,NUXT_PUBLIC_CLOUDINARY_CLOUD_NAME,NUXT_PUBLIC_CLOUDINARY_UPLOAD_PRESET"
