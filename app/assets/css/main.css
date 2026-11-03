@@ -12,6 +12,8 @@
   --color-alborota-black:  0 0 0;
   --color-alborota-paper:  246 246 239; /* #f6f6ef — paper chip background */
   --color-alborota-stone:  227 228 219; /* #e3e4db — CTA chip background */
+  --color-alborota-ink:     66  67  66; /* #424342 — product copy, legends, borders at /12 */
+  --color-alborota-danger: 179  38  30; /* validation messages */
 }
 
 
@@ -40,10 +42,34 @@
     background-color: rgb(255 255 255 / 0.9);
     clip-path: polygon(0.28% 0%, 100% 9.2%, 96.3% 100%, 0% 100%);
   }
+
+  /* <details> accordions: drop the native disclosure triangle in every engine. */
+  summary::-webkit-details-marker {
+    display: none;
+  }
+
+  /*
+   * nuxt-svgo ships `.nuxt-icon--fill * { fill: currentcolor }`, which fills
+   * every shape — turning a stroke-drawn icon into a solid blob. The header
+   * icons depend on it (their paths declare no fill of their own), so it can't
+   * just be switched off globally.
+   *
+   * `.icon-raw` opts an icon out, but only for shapes that don't declare a
+   * fill — so an icon drawn with fills keeps them, and the class stays correct
+   * if the SVG is later swapped for a differently-drawn one. It outranks
+   * nuxt-svgo's rule on specificity, so source order doesn't matter.
+   *
+   * Its companion `.nuxt-icon { width: 1em; height: 1em }` ties with Tailwind's
+   * size utilities and wins on order, so these icons also need `!` on their
+   * width/height classes.
+   */
+  .icon-raw :is(path, circle, rect, line, polyline, polygon, ellipse):not([fill]) {
+    fill: none;
+  }
 }
 
 body {
-  background-color: var(--color-alborota-cream);
+  background-color: rgb(var(--color-alborota-cream));
   color: rgb(var(--color-alborota-black));
   @apply font-sans;
   font-weight: 400;

@@ -22,3 +22,7 @@ logs
 .env
 .env.*
 !.env.example
+
+# One-off operational scripts and the source assets they upload.
+# These mutate the live Shopify store, so they stay out of the repo.
+scripts/local

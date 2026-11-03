@@ -12,6 +12,8 @@ export default {
         'alborota-beige':  'rgb(var(--color-alborota-beige) / <alpha-value>)',
         'alborota-paper':  'rgb(var(--color-alborota-paper) / <alpha-value>)',
         'alborota-stone':  'rgb(var(--color-alborota-stone) / <alpha-value>)',
+        'alborota-ink':    'rgb(var(--color-alborota-ink) / <alpha-value>)',
+        'alborota-danger': 'rgb(var(--color-alborota-danger) / <alpha-value>)',
       },
       fontFamily: {
         sans: ['StevieSans', 'sans-serif'],
