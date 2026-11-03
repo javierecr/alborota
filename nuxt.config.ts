@@ -87,6 +87,13 @@ export default defineNuxtConfig({
   runtimeConfig: {
     public: {
       formspark: { formId: process.env.NUXT_PUBLIC_FORMSPARK_FORM_ID || '' },
+      // Unsigned browser uploads: both values are public by design. Formspark
+      // rejects file bodies and stores only links, so the quote form's
+      // reference images go to Cloudinary first.
+      cloudinary: {
+        cloudName: process.env.NUXT_PUBLIC_CLOUDINARY_CLOUD_NAME || '',
+        uploadPreset: process.env.NUXT_PUBLIC_CLOUDINARY_UPLOAD_PRESET || '',
+      },
     },
   },
 });

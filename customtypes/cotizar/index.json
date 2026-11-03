@@ -10,6 +10,21 @@
         },
         "type": "Text"
       },
+      "quote_title": {
+        "config": {
+          "label": "Título de la sección",
+          "placeholder": "Cotiza tu proyecto / pieza"
+        },
+        "type": "Text"
+      },
+      "quote_image": {
+        "config": {
+          "constraint": {},
+          "label": "Imagen de la sección",
+          "thumbnails": []
+        },
+        "type": "Image"
+      },
       "slices": {
         "config": {
           "choices": {}

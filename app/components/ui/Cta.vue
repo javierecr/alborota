@@ -2,10 +2,11 @@
 import { computed } from 'vue';
 
 // Figma "CTA Tienda". `small` is the product-page variant; `highlighted` is the
-// wider paper-chip version used elsewhere in the shop.
+// wider paper-chip version used elsewhere in the shop; `block` is the quote
+// form's full-width submit.
 const props = withDefaults(
   defineProps<{
-    variant?: 'small' | 'highlighted';
+    variant?: 'small' | 'highlighted' | 'block';
     as?: 'button' | 'link';
     to?: string;
     type?: 'button' | 'submit';
@@ -16,10 +17,13 @@ const props = withDefaults(
 
 const component = computed(() => (props.as === 'link' ? resolveComponent('NuxtLink') : 'button'));
 
-const variantClass = computed(() =>
-  props.variant === 'highlighted'
-    ? 'chip-paper bg-alborota-stone min-w-[154px] px-[24px] py-[4px] text-[15px] leading-[18px]'
-    : 'border border-black px-[12px] py-[4px] text-[13px] leading-[13px] hover:bg-alborota-black hover:text-alborota-cream',
+const variantClass = computed(
+  () =>
+    ({
+      highlighted: 'chip-paper bg-alborota-stone min-w-[154px] px-[24px] py-[4px] text-[15px] leading-[18px]',
+      block: 'w-full border border-black px-[24px] py-[8px] text-[20px] leading-[27px] hover:bg-alborota-black hover:text-alborota-cream',
+      small: 'border border-black px-[12px] py-[4px] text-[13px] leading-[13px] hover:bg-alborota-black hover:text-alborota-cream',
+    })[props.variant],
 );
 </script>
 

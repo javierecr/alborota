@@ -1,6 +1,12 @@
 <script setup lang="ts">
 import { computed } from 'vue';
 
+// `tone` mirrors UiTextControl. `showCount` is on by default for the product
+// page's 500-character message; the quote form's design has no counter.
+//
+// `fill` swaps the row-based height for `h-full`, so the textarea can be sized
+// by its wrapper — the quote form pairs it with a 100px input and both boxes
+// must match exactly.
 const props = withDefaults(
   defineProps<{
     modelValue: string;
@@ -10,31 +16,49 @@ const props = withDefaults(
     placeholder?: string;
     invalid?: boolean;
     describedby?: string;
+    tone?: 'subtle' | 'solid';
+    showCount?: boolean;
+    fill?: boolean;
   }>(),
-  { rows: 4, maxlength: 500 },
+  { rows: 4, maxlength: 500, tone: 'subtle', showCount: true, fill: false },
 );
 
 const emit = defineEmits<{ 'update:modelValue': [string]; blur: [] }>();
 
 const length = computed(() => props.modelValue?.length ?? 0);
+
+const borderClass = computed(() => {
+  if (props.invalid) return 'border-alborota-danger';
+  return props.tone === 'solid' ? 'border-alborota-ink' : 'border-alborota-ink/[0.12]';
+});
+
+const toneClass = computed(() =>
+  props.tone === 'solid'
+    ? 'pl-[13px] pr-[25px] py-[11px] font-stevie placeholder:text-alborota-ink/50'
+    : 'p-[13px] font-stevie-book placeholder:text-alborota-ink/40',
+);
 </script>
 
 <template>
-  <div class="flex flex-col gap-[4px]">
+  <div class="flex flex-col gap-[4px]" :class="fill ? 'h-full' : ''">
     <textarea
       :id="id"
       :value="modelValue"
-      :rows="rows"
+      :rows="fill ? undefined : rows"
       :maxlength="maxlength"
       :placeholder="placeholder"
       :aria-invalid="invalid || undefined"
       :aria-describedby="describedby"
-      class="w-full resize-none border bg-transparent p-[13px] font-stevie-book text-[13px] leading-[22px] text-alborota-ink outline-none placeholder:text-alborota-ink/40 focus-visible:border-alborota-ink"
-      :class="invalid ? 'border-alborota-danger' : 'border-alborota-ink/[0.12]'"
+      class="w-full resize-none border bg-transparent text-[13px] leading-[22px] text-alborota-ink outline-none focus-visible:border-alborota-ink"
+      :class="[toneClass, borderClass, fill ? 'h-full' : '']"
       @input="emit('update:modelValue', ($event.target as HTMLTextAreaElement).value)"
       @blur="emit('blur')"
     />
-    <span class="self-end font-stevie text-[11px] leading-[16px] text-alborota-ink/60" aria-hidden="true">
+    <span
+      v-if="showCount"
+      class="self-end font-stevie text-[11px] leading-[16px] text-alborota-ink/60"
+      aria-hidden="true"
+    >
       {{ length }}/{{ maxlength }}
     </span>
   </div>
