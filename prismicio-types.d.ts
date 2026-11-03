@@ -146,6 +146,28 @@ interface CotizarDocumentData {
 	page_title: prismic.KeyTextField;
 	
 	/**
+	 * Título de la sección field in *Cotizar*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: Cotiza tu proyecto / pieza
+	 * - **API ID Path**: cotizar.quote_title
+	 * - **Tab**: Main
+	 * - **Documentation**: https://prismic.io/docs/fields/text
+	 */
+	quote_title: prismic.KeyTextField;
+	
+	/**
+	 * Imagen de la sección field in *Cotizar*
+	 *
+	 * - **Field Type**: Image
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: cotizar.quote_image
+	 * - **Tab**: Main
+	 * - **Documentation**: https://prismic.io/docs/fields/image
+	 */
+	quote_image: prismic.ImageField<never>;
+	
+	/**
 	 * Slice Zone field in *Cotizar*
 	 *
 	 * - **Field Type**: Slice Zone

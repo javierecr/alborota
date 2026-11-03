@@ -16,9 +16,9 @@ usePrismicMetadata(doc);
 </script>
 
 <template>
-  <section class="px-6 py-12">
-    <h1 class="sr-only">{{ doc?.data.page_title }}</h1>
+  <div>
     <SliceZone :slices="doc?.data.slices ?? []" :components="components" />
-    <ContactForm />
-  </section>
+    <!-- The section renders the page's visible <h1>, so there is no sr-only one here. -->
+    <CotizarQuoteSection :title="doc?.data.quote_title" :image="doc?.data.quote_image" />
+  </div>
 </template>
