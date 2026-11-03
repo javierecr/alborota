@@ -8,6 +8,7 @@ onMounted(() => {
 
 <template>
   <Header />
+  <CartPopup />
   <div class="min-h-dvh grid grid-rows-[1fr_auto]" :style="{ paddingTop: `var(--header-height, 88px)` }">
     <main class="grid [&>*]:min-w-0">
       <slot />

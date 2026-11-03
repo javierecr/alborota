@@ -15,6 +15,9 @@ if (error.value) {
 }
 
 const doc = computed(() => data.value?.doc);
+
+const { itemCount, isCartOpen, openCart, closeCart } = useCart();
+const toggleCart = () => (isCartOpen.value ? closeCart() : openCart());
 </script>
 
 <template>
@@ -34,8 +37,19 @@ const doc = computed(() => data.value?.doc);
       <button class="hover:scale-[1.1] transform-origin-center transition-transform duration-300">
         <User class="w-auto h-4" />
       </button>
-      <button class="hover:scale-[1.1] transform-origin-center transition-transform duration-300">
+      <!-- data-cart-trigger keeps CartPopup's outside-click handler from closing
+           on the same press that this button toggles on. -->
+      <button
+        type="button"
+        data-cart-trigger
+        :aria-label="`Carrito (${itemCount} ${itemCount === 1 ? 'artículo' : 'artículos'})`"
+        aria-controls="cart-popup"
+        :aria-expanded="isCartOpen"
+        class="relative inline-flex hover:scale-[1.1] transform-origin-center transition-transform duration-300"
+        @click="toggleCart"
+      >
         <Cart class="w-auto h-4" />
+        <span class="absolute left-[55%] top-[64%] whitespace-nowrap font-stevie-book text-[11px] leading-[14px]">( {{ itemCount }} )</span>
       </button>
     </div>
   </header>

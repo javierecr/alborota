@@ -11,7 +11,9 @@ export interface CartItem {
   price: { amount: string; currencyCode: string };
   image?: { url: string; altText?: string | null } | null;
   quantity: number;
-  attributes?: CartAttribute[];
+  // `readonly` so items read back out of `readonly(items)` still satisfy this
+  // type — consumers receive a deeply-readonly view and never mutate attributes.
+  attributes?: readonly CartAttribute[];
 }
 
 // Identifies a cart line: same variant with different attributes (message, date, place) are separate lines.
