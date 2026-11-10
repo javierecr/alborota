@@ -1,118 +1,118 @@
 {
-  "id": "collage_banner",
-  "type": "SharedSlice",
-  "name": "CollageBanner",
   "description": "CollageBanner",
+  "id": "collage_banner",
+  "name": "CollageBanner",
+  "type": "SharedSlice",
   "variations": [
     {
-      "id": "default",
-      "name": "Default",
-      "docURL": "...",
-      "version": "initial",
       "description": "Default",
+      "docURL": "...",
+      "id": "default",
       "imageUrl": "",
+      "items": {},
+      "name": "Default",
       "primary": {
         "image": {
-          "type": "Image",
           "config": {
-            "label": "Image",
             "constraint": {},
+            "label": "Image",
             "thumbnails": []
-          }
+          },
+          "type": "Image"
         },
         "image_mobile": {
-          "type": "Image",
           "config": {
-            "label": "Image Mobile (optional)",
             "constraint": {},
+            "label": "Image Mobile (optional)",
             "thumbnails": []
-          }
+          },
+          "type": "Image"
         },
         "image_height": {
-          "type": "Select",
           "config": {
-            "label": "Image Height",
-            "placeholder": "",
             "default_value": "1/0.35",
+            "label": "Image Height",
             "options": [
               "1/0.35",
               "Screen",
               "Auto"
-            ]
-          }
+            ],
+            "placeholder": ""
+          },
+          "type": "Select"
         },
         "vertical_layout": {
-          "type": "Select",
           "config": {
-            "label": "Vertical Layout",
-            "placeholder": "",
             "default_value": "Spread",
+            "label": "Vertical Layout",
             "options": [
               "Spread",
               "Top",
               "Center",
               "Bottom"
-            ]
-          }
+            ],
+            "placeholder": ""
+          },
+          "type": "Select"
         },
         "text_blocks": {
-          "type": "Group",
           "config": {
-            "label": "Text blocks",
-            "repeat": true,
             "fields": {
               "kind": {
-                "type": "Select",
                 "config": {
-                  "label": "Kind",
-                  "placeholder": "",
                   "default_value": "Body",
+                  "label": "Kind",
                   "options": [
                     "Heading",
                     "Body"
-                  ]
-                }
+                  ],
+                  "placeholder": ""
+                },
+                "type": "Select"
               },
               "text": {
-                "type": "StructuredText",
                 "config": {
+                  "allowTargetBlank": false,
                   "label": "Text",
                   "placeholder": "",
-                  "allowTargetBlank": false,
                   "single": "paragraph,hyperlink"
-                }
+                },
+                "type": "StructuredText"
               },
               "position": {
-                "type": "Select",
                 "config": {
-                  "label": "Position",
-                  "placeholder": "",
                   "default_value": "Left",
+                  "label": "Position",
                   "options": [
                     "Left",
                     "Center",
                     "Right"
-                  ]
-                }
+                  ],
+                  "placeholder": ""
+                },
+                "type": "Select"
               },
               "tilt": {
-                "type": "Select",
                 "config": {
-                  "label": "Tilt",
-                  "placeholder": "",
                   "default_value": "None",
+                  "label": "Tilt",
                   "options": [
                     "None",
                     "Left",
                     "Right"
-                  ]
-                }
+                  ],
+                  "placeholder": ""
+                },
+                "type": "Select"
               }
-            }
-          }
+            },
+            "label": "Text blocks",
+            "repeat": true
+          },
+          "type": "Group"
         }
       },
-      "items": {}
+      "version": "initial"
     }
   ]
 }
