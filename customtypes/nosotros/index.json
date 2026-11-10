@@ -30,6 +30,9 @@
             },
             "framed_photo": {
               "type": "SharedSlice"
+            },
+            "featured_collection": {
+              "type": "SharedSlice"
             }
           }
         },
