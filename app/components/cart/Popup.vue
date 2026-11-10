@@ -170,7 +170,7 @@ onBeforeUnmount(removeListeners);
         :aria-modal="isMobile ? 'true' : undefined"
         aria-labelledby="cart-popup-title"
         tabindex="-1"
-        class="fixed right-0 top-0 z-[100] flex h-[100dvh] w-full flex-col bg-alborota-cream px-[20px] pb-[calc(24px+env(safe-area-inset-bottom))] pt-[12px] will-change-transform md:top-[var(--header-height,88px)] md:h-[780px] md:max-h-[calc(100dvh-var(--header-height,88px)-16px)] md:w-[572px] md:border-b md:border-l md:border-black/[0.12] md:px-[32px] md:pb-[24px]"
+        class="fixed right-4 top-0 z-[100] flex h-[100dvh] w-full flex-col bg-alborota-cream px-[20px] pb-[calc(24px+env(safe-area-inset-bottom))] pt-[12px] will-change-transform md:top-[var(--header-height,88px)] md:h-[780px] md:max-h-[calc(100dvh-var(--header-height,88px)-16px)] md:w-[572px] md:border md:border-black md:px-[32px] md:pb-[24px]"
       >
         <div class="flex shrink-0 items-center justify-between">
           <h2
