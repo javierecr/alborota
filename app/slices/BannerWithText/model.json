@@ -12,6 +12,13 @@
       "items": {},
       "name": "Default",
       "primary": {
+        "frame_color": {
+          "config": {
+            "label": "Frame Color",
+            "placeholder": ""
+          },
+          "type": "Color"
+        },
         "image": {
           "config": {
             "constraint": {},

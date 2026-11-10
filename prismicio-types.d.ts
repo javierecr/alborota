@@ -320,7 +320,7 @@ interface FooterDocumentData {
  */
 export type FooterDocument<Lang extends string = string> = prismic.PrismicDocumentWithoutUID<Simplify<FooterDocumentData>, "footer", Lang>;
 
-type GaleriaDocumentDataSlicesSlice = never
+type GaleriaDocumentDataSlicesSlice = FeaturedProjectsSlice | BannerWithTextSlice
 
 /**
  * Content for Galería documents
@@ -596,7 +596,7 @@ interface LegalPageDocumentData {
  */
 export type LegalPageDocument<Lang extends string = string> = prismic.PrismicDocumentWithUID<Simplify<LegalPageDocumentData>, "legal_page", Lang>;
 
-type NosotrosDocumentDataSlicesSlice = never
+type NosotrosDocumentDataSlicesSlice = FeaturedProjectsSlice | BannerWithTextSlice
 
 /**
  * Content for Nosotros documents
@@ -994,6 +994,16 @@ export type AllDocumentTypes = ColeccionDocument | CotizarDocument | FooterDocum
  * Primary content in *BannerWithText → Default → Primary*
  */
 export interface BannerWithTextSliceDefaultPrimary {
+	/**
+	 * Frame Color field in *BannerWithText → Default → Primary*
+	 *
+	 * - **Field Type**: Color
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: banner_with_text.default.primary.frame_color
+	 * - **Documentation**: https://prismic.io/docs/fields/color
+	 */
+	frame_color: prismic.ColorField;
+	
 	/**
 	 * Image field in *BannerWithText → Default → Primary*
 	 *

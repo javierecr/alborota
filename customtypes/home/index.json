@@ -1,21 +1,16 @@
 {
-  "id": "home",
   "format": "page",
-  "label": "Home",
-  "repeatable": false,
-  "status": true,
+  "id": "home",
   "json": {
     "Main": {
       "page_title": {
-        "type": "Text",
         "config": {
           "label": "Page Title",
           "placeholder": "Alborota"
-        }
+        },
+        "type": "Text"
       },
       "slices": {
-        "type": "Slices",
-        "fieldset": "Slice Zone",
         "config": {
           "choices": {
             "featured_collection": {
@@ -37,30 +32,35 @@
               "type": "SharedSlice"
             }
           }
-        }
+        },
+        "fieldset": "Slice Zone",
+        "type": "Slices"
       }
     },
     "SEO & Metadata": {
       "meta_title": {
-        "type": "Text",
         "config": {
           "label": "Meta Title"
-        }
+        },
+        "type": "Text"
       },
       "meta_description": {
-        "type": "Text",
         "config": {
           "label": "Meta Description"
-        }
+        },
+        "type": "Text"
       },
       "meta_image": {
-        "type": "Image",
         "config": {
-          "label": "Meta Image",
           "constraint": {},
+          "label": "Meta Image",
           "thumbnails": []
-        }
+        },
+        "type": "Image"
       }
     }
-  }
+  },
+  "label": "Home",
+  "repeatable": false,
+  "status": true
 }

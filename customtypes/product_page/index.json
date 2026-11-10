@@ -1,42 +1,39 @@
 {
   "format": "page",
   "id": "product_page",
-  "label": "Product Page",
-  "repeatable": false,
-  "status": true,
   "json": {
     "Main": {
       "free_shipping_text": {
-        "type": "Text",
         "config": {
           "label": "Free Shipping Text",
           "placeholder": ""
-        }
+        },
+        "type": "Text"
       },
       "shipping": {
-        "type": "StructuredText",
         "config": {
-          "label": "Shipping",
-          "placeholder": "",
           "allowTargetBlank": true,
-          "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
-        }
+          "label": "Shipping",
+          "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl",
+          "placeholder": ""
+        },
+        "type": "StructuredText"
       },
       "returns": {
-        "type": "StructuredText",
         "config": {
-          "label": "Returns",
-          "placeholder": "",
           "allowTargetBlank": true,
-          "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
-        }
+          "label": "Returns",
+          "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl",
+          "placeholder": ""
+        },
+        "type": "StructuredText"
       },
       "slices": {
-        "type": "Slices",
-        "fieldset": "Slice Zone",
         "config": {
           "choices": {}
-        }
+        },
+        "fieldset": "Slice Zone",
+        "type": "Slices"
       }
     },
     "SEO & Metadata": {
@@ -66,5 +63,8 @@
         "type": "Image"
       }
     }
-  }
+  },
+  "label": "Product Page",
+  "repeatable": false,
+  "status": true
 }

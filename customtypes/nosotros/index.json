@@ -12,7 +12,14 @@
       },
       "slices": {
         "config": {
-          "choices": {}
+          "choices": {
+            "featured_projects": {
+              "type": "SharedSlice"
+            },
+            "banner_with_text": {
+              "type": "SharedSlice"
+            }
+          }
         },
         "fieldset": "Slice Zone",
         "type": "Slices"
