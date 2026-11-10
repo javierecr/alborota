@@ -1,0 +1,195 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"heading": {
+				"__TYPE__": "FieldContent",
+				"value": "Más sobre el proceso",
+				"type": "Text"
+			},
+			"steps": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"image",
+								{
+									"origin": {
+										"id": "main",
+										"url": "https://images.unsplash.com/photo-1513364776144-60967b0f800f",
+										"width": 3000,
+										"height": 3900
+									},
+									"url": "https://images.unsplash.com/photo-1513364776144-60967b0f800f",
+									"width": 3000,
+									"height": 3900,
+									"edit": {
+										"zoom": 1,
+										"crop": { "x": 0, "y": 0 },
+										"background": "transparent"
+									},
+									"alt": "Boceto inicial a lápiz",
+									"credits": null,
+									"__TYPE__": "ImageContent",
+									"thumbnails": {}
+								}
+							],
+							[
+								"heading",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "Conceptualizar",
+									"type": "Text"
+								}
+							],
+							[
+								"text",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "Hacemos unos bocetos para mandarte y confirmar que vamos por buen camino.",
+									"type": "Text"
+								}
+							]
+						]
+					},
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"image",
+								{
+									"origin": {
+										"id": "main",
+										"url": "https://images.unsplash.com/photo-1452860606245-08befc0ff44b",
+										"width": 3000,
+										"height": 3900
+									},
+									"url": "https://images.unsplash.com/photo-1452860606245-08befc0ff44b",
+									"width": 3000,
+									"height": 3900,
+									"edit": {
+										"zoom": 1,
+										"crop": { "x": 0, "y": 0 },
+										"background": "transparent"
+									},
+									"alt": "Boceto a tinta de la pieza",
+									"credits": null,
+									"__TYPE__": "ImageContent",
+									"thumbnails": {}
+								}
+							],
+							[
+								"heading",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "Bocetos",
+									"type": "Text"
+								}
+							],
+							[
+								"text",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "Hacemos unos bocetos para mandarte y confirmar que vamos por buen camino.",
+									"type": "Text"
+								}
+							]
+						]
+					},
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"image",
+								{
+									"origin": {
+										"id": "main",
+										"url": "https://images.unsplash.com/photo-1452860606245-08befc0ff44b",
+										"width": 3000,
+										"height": 3900
+									},
+									"url": "https://images.unsplash.com/photo-1572044162444-ad60f128bdea",
+									"width": 3000,
+									"height": 3900,
+									"edit": {
+										"zoom": 1,
+										"crop": { "x": 0, "y": 0 },
+										"background": "transparent"
+									},
+									"alt": "Pruebas de papel de color sobre la mesa de trabajo",
+									"credits": null,
+									"__TYPE__": "ImageContent",
+									"thumbnails": {}
+								}
+							],
+							[
+								"heading",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "Prueba y color",
+									"type": "Text"
+								}
+							],
+							[
+								"text",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "Exploramos diferentes paletas de color en las pruebas para decidir el color final.",
+									"type": "Text"
+								}
+							]
+						]
+					},
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"image",
+								{
+									"origin": {
+										"id": "main",
+										"url": "https://images.unsplash.com/photo-1513519245088-0e12902e5a38",
+										"width": 3000,
+										"height": 3900
+									},
+									"url": "https://images.unsplash.com/photo-1513519245088-0e12902e5a38",
+									"width": 3000,
+									"height": 3900,
+									"edit": {
+										"zoom": 1,
+										"crop": { "x": 0, "y": 0 },
+										"background": "transparent"
+									},
+									"alt": "Pieza terminada sobre fondo morado",
+									"credits": null,
+									"__TYPE__": "ImageContent",
+									"thumbnails": {}
+								}
+							],
+							[
+								"heading",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "Producto final",
+									"type": "Text"
+								}
+							],
+							[
+								"text",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "Una vez aprobada, se desarrolla la versión final.",
+									"type": "Text"
+								}
+							]
+						]
+					}
+				]
+			}
+		},
+		"items": []
+	}
+]
