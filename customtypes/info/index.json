@@ -1,6 +1,6 @@
 {
   "format": "page",
-  "id": "legal_page",
+  "id": "info",
   "json": {
     "Main": {
       "uid": {
@@ -15,12 +15,13 @@
         },
         "type": "Text"
       },
-      "slices": {
+      "content": {
         "config": {
-          "choices": {}
+          "allowTargetBlank": true,
+          "label": "Content",
+          "multi": "paragraph,heading2,heading3,heading4,strong,em,hyperlink,list-item,o-list-item"
         },
-        "fieldset": "Slice Zone",
-        "type": "Slices"
+        "type": "StructuredText"
       }
     },
     "SEO & Metadata": {
@@ -46,7 +47,7 @@
       }
     }
   },
-  "label": "Legal Page",
+  "label": "Info",
   "repeatable": true,
   "status": true
 }

@@ -21,8 +21,8 @@
       "path": "/"
     },
     {
-      "type": "legal_page",
-      "path": "/legal/:uid"
+      "type": "info",
+      "path": "/:uid"
     },
     {
       "type": "nosotros",
@@ -35,6 +35,10 @@
     {
       "type": "tienda",
       "path": "/tienda"
+    },
+    {
+      "type": "info",
+      "path": "/:uid"
     }
   ]
 }

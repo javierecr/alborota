@@ -525,60 +525,58 @@ interface HomeDocumentData {
  */
 export type HomeDocument<Lang extends string = string> = prismic.PrismicDocumentWithoutUID<Simplify<HomeDocumentData>, "home", Lang>;
 
-type LegalPageDocumentDataSlicesSlice = never
-
 /**
- * Content for Legal Page documents
+ * Content for Info documents
  */
-interface LegalPageDocumentData {
+interface InfoDocumentData {
 	/**
-	 * Page Title field in *Legal Page*
+	 * Page Title field in *Info*
 	 *
 	 * - **Field Type**: Text
 	 * - **Placeholder**: *None*
-	 * - **API ID Path**: legal_page.page_title
+	 * - **API ID Path**: info.page_title
 	 * - **Tab**: Main
 	 * - **Documentation**: https://prismic.io/docs/fields/text
 	 */
 	page_title: prismic.KeyTextField;
 	
 	/**
-	 * Slice Zone field in *Legal Page*
+	 * Content field in *Info*
 	 *
-	 * - **Field Type**: Slice Zone
+	 * - **Field Type**: Rich Text
 	 * - **Placeholder**: *None*
-	 * - **API ID Path**: legal_page.slices[]
+	 * - **API ID Path**: info.content
 	 * - **Tab**: Main
-	 * - **Documentation**: https://prismic.io/docs/slices
+	 * - **Documentation**: https://prismic.io/docs/fields/rich-text
 	 */
-	slices: prismic.SliceZone<LegalPageDocumentDataSlicesSlice>;/**
-	 * Meta Title field in *Legal Page*
+	content: prismic.RichTextField;/**
+	 * Meta Title field in *Info*
 	 *
 	 * - **Field Type**: Text
 	 * - **Placeholder**: *None*
-	 * - **API ID Path**: legal_page.meta_title
+	 * - **API ID Path**: info.meta_title
 	 * - **Tab**: SEO & Metadata
 	 * - **Documentation**: https://prismic.io/docs/fields/text
 	 */
 	meta_title: prismic.KeyTextField;
 	
 	/**
-	 * Meta Description field in *Legal Page*
+	 * Meta Description field in *Info*
 	 *
 	 * - **Field Type**: Text
 	 * - **Placeholder**: *None*
-	 * - **API ID Path**: legal_page.meta_description
+	 * - **API ID Path**: info.meta_description
 	 * - **Tab**: SEO & Metadata
 	 * - **Documentation**: https://prismic.io/docs/fields/text
 	 */
 	meta_description: prismic.KeyTextField;
 	
 	/**
-	 * Meta Image field in *Legal Page*
+	 * Meta Image field in *Info*
 	 *
 	 * - **Field Type**: Image
 	 * - **Placeholder**: *None*
-	 * - **API ID Path**: legal_page.meta_image
+	 * - **API ID Path**: info.meta_image
 	 * - **Tab**: SEO & Metadata
 	 * - **Documentation**: https://prismic.io/docs/fields/image
 	 */
@@ -586,15 +584,15 @@ interface LegalPageDocumentData {
 }
 
 /**
- * Legal Page document from Prismic
+ * Info document from Prismic
  *
- * - **API ID**: `legal_page`
+ * - **API ID**: `info`
  * - **Repeatable**: `true`
  * - **Documentation**: https://prismic.io/docs/content-modeling
  *
  * @typeParam Lang - Language API ID of the document.
  */
-export type LegalPageDocument<Lang extends string = string> = prismic.PrismicDocumentWithUID<Simplify<LegalPageDocumentData>, "legal_page", Lang>;
+export type InfoDocument<Lang extends string = string> = prismic.PrismicDocumentWithUID<Simplify<InfoDocumentData>, "info", Lang>;
 
 type NosotrosDocumentDataSlicesSlice = FeaturedProjectsSlice | BannerWithTextSlice | CollageBannerSlice | HeadingWithQuoteSlice | FramedPhotoGridSlice | FramedPhotoSlice | FeaturedCollectionSlice
 
@@ -988,7 +986,7 @@ interface TiendaDocumentData {
  */
 export type TiendaDocument<Lang extends string = string> = prismic.PrismicDocumentWithoutUID<Simplify<TiendaDocumentData>, "tienda", Lang>;
 
-export type AllDocumentTypes = ColeccionDocument | CotizarDocument | FooterDocument | GaleriaDocument | HeaderDocument | HomeDocument | LegalPageDocument | NosotrosDocument | ProductPageDocument | ProductoDocument | ProjectDocument | TiendaDocument;
+export type AllDocumentTypes = ColeccionDocument | CotizarDocument | FooterDocument | GaleriaDocument | HeaderDocument | HomeDocument | InfoDocument | NosotrosDocument | ProductPageDocument | ProductoDocument | ProjectDocument | TiendaDocument;
 
 /**
  * Primary content in *BannerWithText → Default → Primary*
@@ -2058,9 +2056,8 @@ declare module "@prismicio/client" {
 			HomeDocument,
 			HomeDocumentData,
 			HomeDocumentDataSlicesSlice,
-			LegalPageDocument,
-			LegalPageDocumentData,
-			LegalPageDocumentDataSlicesSlice,
+			InfoDocument,
+			InfoDocumentData,
 			NosotrosDocument,
 			NosotrosDocumentData,
 			NosotrosDocumentDataSlicesSlice,
