@@ -17,8 +17,11 @@ usePrismicMetadata(doc);
 
 <template>
   <div>
-    <SliceZone :slices="doc?.data.slices ?? []" :components="components" />
     <!-- The section renders the page's visible <h1>, so there is no sr-only one here. -->
-    <CotizarQuoteSection :title="doc?.data.quote_title" :image="doc?.data.quote_image" />
+    <CotizarQuoteSection
+      :title="doc?.data.quote_title"
+      :image="doc?.data.quote_image"
+    />
+    <SliceZone :slices="doc?.data.slices ?? []" :components="components" />
   </div>
 </template>
