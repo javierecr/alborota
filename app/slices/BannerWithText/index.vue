@@ -95,7 +95,7 @@ const hasOverlay = computed(
     :class="CHROME_VARS"
   >
     <!-- page gutter -->
-    <div class="p-[12px] md:p-[24px]">
+    <div class="p-[12px] md:p-[24px] container">
       <!-- green picture frame -->
       <div
         class="relative bg-alborota-grass p-[12px] md:pt-[32px] md:pr-[35px] md:pb-[27px] md:pl-[34px]"
