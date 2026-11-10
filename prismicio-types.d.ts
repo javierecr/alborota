@@ -128,7 +128,7 @@ interface ColeccionDocumentData {
  */
 export type ColeccionDocument<Lang extends string = string> = prismic.PrismicDocumentWithUID<Simplify<ColeccionDocumentData>, "coleccion", Lang>;
 
-type CotizarDocumentDataSlicesSlice = never
+type CotizarDocumentDataSlicesSlice = ProcessStepsSlice
 
 /**
  * Content for Cotizar documents
@@ -596,7 +596,7 @@ interface LegalPageDocumentData {
  */
 export type LegalPageDocument<Lang extends string = string> = prismic.PrismicDocumentWithUID<Simplify<LegalPageDocumentData>, "legal_page", Lang>;
 
-type NosotrosDocumentDataSlicesSlice = FeaturedProjectsSlice | BannerWithTextSlice | CollageBannerSlice | HeadingWithQuoteSlice | FramedPhotoGridSlice | FramedPhotoSlice
+type NosotrosDocumentDataSlicesSlice = FeaturedProjectsSlice | BannerWithTextSlice | CollageBannerSlice | HeadingWithQuoteSlice | FramedPhotoGridSlice | FramedPhotoSlice | FeaturedCollectionSlice
 
 /**
  * Content for Nosotros documents
@@ -1379,9 +1379,54 @@ export interface FeaturedCollectionSliceDefaultPrimary {
 export type FeaturedCollectionSliceDefault = prismic.SharedSliceVariation<"default", Simplify<FeaturedCollectionSliceDefaultPrimary>, never>;
 
 /**
+ * Primary content in *FeaturedCollection → All Products → Primary*
+ */
+export interface FeaturedCollectionSliceAllProductsPrimary {
+	/**
+	 * Heading field in *FeaturedCollection → All Products → Primary*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: featured_collection.allProducts.primary.heading
+	 * - **Documentation**: https://prismic.io/docs/fields/text
+	 */
+	heading: prismic.KeyTextField;
+	
+	/**
+	 * CTA field in *FeaturedCollection → All Products → Primary*
+	 *
+	 * - **Field Type**: Link
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: featured_collection.allProducts.primary.cta
+	 * - **Documentation**: https://prismic.io/docs/fields/link
+	 */
+	cta: prismic.LinkField<string, string, unknown, prismic.FieldState, never>;
+	
+	/**
+	 * Randomize order field in *FeaturedCollection → All Products → Primary*
+	 *
+	 * - **Field Type**: Boolean
+	 * - **Placeholder**: *None*
+	 * - **Default Value**: false
+	 * - **API ID Path**: featured_collection.allProducts.primary.randomize
+	 * - **Documentation**: https://prismic.io/docs/fields/boolean
+	 */
+	randomize: prismic.BooleanField;
+}
+
+/**
+ * All Products variation for FeaturedCollection Slice
+ *
+ * - **API ID**: `allProducts`
+ * - **Description**: All Products
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type FeaturedCollectionSliceAllProducts = prismic.SharedSliceVariation<"allProducts", Simplify<FeaturedCollectionSliceAllProductsPrimary>, never>;
+
+/**
  * Slice variation for *FeaturedCollection*
  */
-type FeaturedCollectionSliceVariation = FeaturedCollectionSliceDefault
+type FeaturedCollectionSliceVariation = FeaturedCollectionSliceDefault | FeaturedCollectionSliceAllProducts
 
 /**
  * FeaturedCollection Shared Slice
@@ -1896,6 +1941,89 @@ type MediaCoverSliceVariation = MediaCoverSliceDefault
  */
 export type MediaCoverSlice = prismic.SharedSlice<"media_cover", MediaCoverSliceVariation>;
 
+/**
+ * Item in *ProcessSteps → Default → Primary → Pasos*
+ */
+export interface ProcessStepsSliceDefaultPrimaryStepsItem {
+	/**
+	 * Imagen field in *ProcessSteps → Default → Primary → Pasos*
+	 *
+	 * - **Field Type**: Image
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: process_steps.default.primary.steps[].image
+	 * - **Documentation**: https://prismic.io/docs/fields/image
+	 */
+	image: prismic.ImageField<never>;
+	
+	/**
+	 * Título del paso field in *ProcessSteps → Default → Primary → Pasos*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: Conceptualizar
+	 * - **API ID Path**: process_steps.default.primary.steps[].heading
+	 * - **Documentation**: https://prismic.io/docs/fields/text
+	 */
+	heading: prismic.KeyTextField;
+	
+	/**
+	 * Descripción field in *ProcessSteps → Default → Primary → Pasos*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: process_steps.default.primary.steps[].text
+	 * - **Documentation**: https://prismic.io/docs/fields/text
+	 */
+	text: prismic.KeyTextField;
+}
+
+/**
+ * Primary content in *ProcessSteps → Default → Primary*
+ */
+export interface ProcessStepsSliceDefaultPrimary {
+	/**
+	 * Título field in *ProcessSteps → Default → Primary*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: Más sobre el proceso
+	 * - **API ID Path**: process_steps.default.primary.heading
+	 * - **Documentation**: https://prismic.io/docs/fields/text
+	 */
+	heading: prismic.KeyTextField;
+	
+	/**
+	 * Pasos field in *ProcessSteps → Default → Primary*
+	 *
+	 * - **Field Type**: Group
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: process_steps.default.primary.steps[]
+	 * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+	 */
+	steps: prismic.GroupField<Simplify<ProcessStepsSliceDefaultPrimaryStepsItem>>;
+}
+
+/**
+ * Default variation for ProcessSteps Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type ProcessStepsSliceDefault = prismic.SharedSliceVariation<"default", Simplify<ProcessStepsSliceDefaultPrimary>, never>;
+
+/**
+ * Slice variation for *ProcessSteps*
+ */
+type ProcessStepsSliceVariation = ProcessStepsSliceDefault
+
+/**
+ * ProcessSteps Shared Slice
+ *
+ * - **API ID**: `process_steps`
+ * - **Description**: *None*
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type ProcessStepsSlice = prismic.SharedSlice<"process_steps", ProcessStepsSliceVariation>;
+
 declare module "@prismicio/client" {
 	interface CreateClient {
 		(repositoryNameOrEndpoint: string, options?: prismic.ClientConfig): prismic.Client<AllDocumentTypes>;
@@ -1967,8 +2095,10 @@ declare module "@prismicio/client" {
 			ColorBackgroundBannerSliceWithHeadingAndCta,
 			FeaturedCollectionSlice,
 			FeaturedCollectionSliceDefaultPrimary,
+			FeaturedCollectionSliceAllProductsPrimary,
 			FeaturedCollectionSliceVariation,
 			FeaturedCollectionSliceDefault,
+			FeaturedCollectionSliceAllProducts,
 			FeaturedProjectsSlice,
 			FeaturedProjectsSliceDefaultPrimaryProjectsItem,
 			FeaturedProjectsSliceDefaultPrimary,
@@ -1996,7 +2126,12 @@ declare module "@prismicio/client" {
 			MediaCoverSlice,
 			MediaCoverSliceDefaultPrimary,
 			MediaCoverSliceVariation,
-			MediaCoverSliceDefault
+			MediaCoverSliceDefault,
+			ProcessStepsSlice,
+			ProcessStepsSliceDefaultPrimaryStepsItem,
+			ProcessStepsSliceDefaultPrimary,
+			ProcessStepsSliceVariation,
+			ProcessStepsSliceDefault
 		}
 	}
 }

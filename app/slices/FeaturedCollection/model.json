@@ -36,6 +36,39 @@
         }
       },
       "version": "initial"
+    },
+    {
+      "description": "All Products",
+      "docURL": "",
+      "id": "allProducts",
+      "imageUrl": "",
+      "name": "All Products",
+      "primary": {
+        "heading": {
+          "config": {
+            "label": "Heading"
+          },
+          "type": "Text"
+        },
+        "cta": {
+          "config": {
+            "allowTargetBlank": true,
+            "allowText": true,
+            "label": "CTA"
+          },
+          "type": "Link"
+        },
+        "randomize": {
+          "config": {
+            "default_value": false,
+            "label": "Randomize order",
+            "placeholder_false": "Shopify order",
+            "placeholder_true": "Random"
+          },
+          "type": "Boolean"
+        }
+      },
+      "version": ""
     }
   ]
 }
