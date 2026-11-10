@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import type { Content } from "@prismicio/client";
-import type { Product } from "~/types/product";
+import type { Content } from '@prismicio/client';
+import type { Product } from '~/types/product';
 
 /** How many products the All Products variation pulls. Fixed by design — editors
  * choose the source and the order, not the count. */
-const ALL_PRODUCTS_COUNT = 24;
+const ALL_PRODUCTS_COUNT = 3;
 
 const props = defineProps(
   getSliceComponentProps<Content.FeaturedCollectionSlice>(),
@@ -15,20 +15,22 @@ const props = defineProps(
  * fields have to be read behind a `variation` narrow.
  */
 const collectionId = computed(() =>
-  props.slice.variation === "default"
+  props.slice.variation === 'default'
     ? props.slice.primary.shopify_collection_id
     : null,
 );
 
 const randomize = computed(() =>
-  props.slice.variation === "allProducts" ? props.slice.primary.randomize : false,
+  props.slice.variation === 'allProducts'
+    ? props.slice.primary.randomize
+    : false,
 );
 
 const { data } = await useAsyncData(
   `featured-collection-${props.slice.variation}-${props.slice.id}`,
   async () => {
-    if (props.slice.variation === "allProducts") {
-      const res = await $fetch("/api/products", {
+    if (props.slice.variation === 'allProducts') {
+      const res = await $fetch('/api/products', {
         query: { first: ALL_PRODUCTS_COUNT },
       });
 
@@ -42,7 +44,7 @@ const { data } = await useAsyncData(
 
     if (!collectionId.value) return [];
 
-    const res = await $fetch("/api/products", {
+    const res = await $fetch('/api/products', {
       query: { collectionId: String(collectionId.value), first: 3 },
     });
 
