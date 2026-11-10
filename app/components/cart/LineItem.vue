@@ -65,7 +65,7 @@ const step = (delta: number) => {
       <div class="flex flex-col gap-[2px]">
         <div class="flex items-start justify-between gap-[12px]">
           <p
-            class="[word-break:break-word] font-abc text-[15px] font-bold uppercase leading-[18px] text-alborota-ink"
+            class="[word-break:break-word] font-abc text-[0.9375rem] font-bold uppercase leading-[18px] text-alborota-ink"
           >
             {{ item.title }}
           </p>
@@ -82,7 +82,7 @@ const step = (delta: number) => {
 
         <p
           v-if="subtitle"
-          class="font-stevie text-[12px] uppercase leading-[18.7px] text-black/50"
+          class="font-stevie text-xs uppercase leading-[18.7px] text-black/50"
         >
           {{ subtitle }}
         </p>
@@ -90,7 +90,7 @@ const step = (delta: number) => {
         <p
           v-for="attribute in attributes"
           :key="attribute.key"
-          class="[word-break:break-word] font-stevie text-[12px] leading-[18.7px] text-black/50"
+          class="[word-break:break-word] font-stevie text-xs leading-[18.7px] text-black/50"
         >
           {{ attribute.key }}: {{ attribute.value }}
         </p>
@@ -113,7 +113,7 @@ const step = (delta: number) => {
           </button>
 
           <span
-            class="min-w-[12px] text-center font-stevie text-[12px] uppercase leading-[18.7px] tabular-nums text-black"
+            class="min-w-[12px] text-center font-stevie text-xs uppercase leading-[18.7px] tabular-nums text-black"
           >
             {{ item.quantity }}
           </span>
@@ -130,7 +130,7 @@ const step = (delta: number) => {
         </div>
 
         <span
-          class="shrink-0 text-right font-stevie text-[12px] leading-[18.7px] text-black"
+          class="shrink-0 text-right font-stevie text-xs leading-[18.7px] text-black"
         >
           {{ linePrice }}
         </span>

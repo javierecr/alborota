@@ -187,7 +187,7 @@ const bodyBorderClass = computed(() => (props.invalid ? 'border-alborota-danger'
         <ArrowLeft class="icon-raw !h-[10px] !w-[6px]" aria-hidden="true" />
       </button>
 
-      <span aria-live="polite" class="font-stevie text-[13px] leading-[24px] text-alborota-ink">
+      <span aria-live="polite" class="font-stevie text-[0.8125rem] leading-[24px] text-alborota-ink">
         {{ monthLabel }}
       </span>
 
@@ -215,7 +215,7 @@ const bodyBorderClass = computed(() => (props.invalid ? 'border-alborota-danger'
           v-for="(weekday, i) in WEEKDAYS"
           :key="i"
           role="columnheader"
-          class="flex h-[32px] items-center justify-center font-stevie text-[13px] font-bold leading-[24px] text-alborota-ink"
+          class="flex h-[32px] items-center justify-center font-stevie text-[0.8125rem] font-bold leading-[24px] text-alborota-ink"
         >
           {{ weekday }}
         </span>
@@ -232,7 +232,7 @@ const bodyBorderClass = computed(() => (props.invalid ? 'border-alborota-danger'
           :disabled="cell.disabled"
           :aria-label="cell.label"
           :aria-pressed="cell.selected"
-          class="flex h-[32px] items-center justify-center font-stevie text-[13px] leading-[24px] transition-colors focus-visible:outline focus-visible:outline-1 focus-visible:-outline-offset-2 focus-visible:outline-alborota-ink"
+          class="flex h-[32px] items-center justify-center font-stevie text-[0.8125rem] leading-[24px] transition-colors focus-visible:outline focus-visible:outline-1 focus-visible:-outline-offset-2 focus-visible:outline-alborota-ink"
           :class="[
             cell.selected
               ? 'bg-alborota-black text-alborota-cream'

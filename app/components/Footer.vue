@@ -31,12 +31,12 @@ const backgroundStyle = computed(() => {
         class="flex w-[120px] flex-col gap-[18px]"
       >
         <h2
-          class="chip-paper self-start px-3 pt-2 pb-1 font-stevie text-[10px] uppercase leading-4 text-black"
+          class="chip-paper self-start px-3 pt-2 pb-1 font-stevie text-[0.625rem] uppercase leading-4 text-black"
         >
           {{ block.title }}
         </h2>
         <div
-          class="chip-paper-wide self-end pl-2 pr-[10px] pt-[7px] pb-[3px] font-stevie text-[10px] leading-4 text-black"
+          class="chip-paper-wide self-end pl-2 pr-[10px] pt-[7px] pb-[3px] font-stevie text-[0.625rem] leading-4 text-black"
         >
           <PrismicRichText :field="block.content" />
         </div>
@@ -49,7 +49,7 @@ const backgroundStyle = computed(() => {
           v-for="(link, index) in doc?.data.links"
           :key="index"
           :field="link.link"
-          class="chip-paper px-3 pt-2 pb-1 font-stevie text-[10px] uppercase leading-4 text-black no-underline"
+          class="chip-paper px-3 pt-2 pb-1 font-stevie text-[0.625rem] uppercase leading-4 text-black no-underline"
         >
           {{ link.label }}
         </PrismicLink>

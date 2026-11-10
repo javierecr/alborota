@@ -49,14 +49,14 @@ const toneClass = computed(() =>
       :placeholder="placeholder"
       :aria-invalid="invalid || undefined"
       :aria-describedby="describedby"
-      class="w-full resize-none border bg-transparent text-[13px] leading-[22px] text-alborota-ink outline-none focus-visible:border-alborota-ink"
+      class="w-full resize-none border bg-transparent text-[0.8125rem] leading-[22px] text-alborota-ink outline-none focus-visible:border-alborota-ink"
       :class="[toneClass, borderClass, fill ? 'h-full' : '']"
       @input="emit('update:modelValue', ($event.target as HTMLTextAreaElement).value)"
       @blur="emit('blur')"
     />
     <span
       v-if="showCount"
-      class="self-end font-stevie text-[11px] leading-[16px] text-alborota-ink/60"
+      class="self-end font-stevie text-[0.6875rem] leading-[16px] text-alborota-ink/60"
       aria-hidden="true"
     >
       {{ length }}/{{ maxlength }}

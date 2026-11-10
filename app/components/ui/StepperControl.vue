@@ -68,7 +68,7 @@ const atMax = computed(() => props.modelValue >= props.max);
       autocomplete="off"
       :aria-invalid="invalid || undefined"
       :aria-describedby="describedby"
-      class="w-full min-w-[24px] bg-transparent p-0 text-center font-sans text-[16px] leading-[24px] text-alborota-ink outline-none"
+      class="w-full min-w-[24px] bg-transparent p-0 text-center font-sans text-base leading-[24px] text-alborota-ink outline-none"
       @change="commit(draft)"
       @blur="commit(draft); emit('blur')"
     />

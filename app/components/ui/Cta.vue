@@ -20,9 +20,9 @@ const component = computed(() => (props.as === 'link' ? resolveComponent('NuxtLi
 const variantClass = computed(
   () =>
     ({
-      highlighted: 'chip-paper bg-alborota-stone min-w-[154px] px-[24px] py-[4px] text-[15px] leading-[18px]',
-      block: 'w-full border border-black px-[24px] py-[8px] text-[20px] leading-[27px] hover:bg-alborota-black hover:text-alborota-cream',
-      small: 'border border-black px-[12px] py-[4px] text-[13px] leading-[13px] hover:bg-alborota-black hover:text-alborota-cream',
+      highlighted: 'chip-paper bg-alborota-stone min-w-[154px] px-[24px] py-[4px] text-[0.9375rem] leading-[18px]',
+      block: 'w-full border border-black px-[24px] py-[8px] text-xl leading-[27px] hover:bg-alborota-black hover:text-alborota-cream',
+      small: 'border border-black px-[12px] py-[4px] text-[0.8125rem] leading-[13px] hover:bg-alborota-black hover:text-alborota-cream',
     })[props.variant],
 );
 </script>

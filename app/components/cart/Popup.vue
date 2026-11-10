@@ -4,14 +4,20 @@ import { useBodyScrollLock } from '~/composables/useBodyScrollLock';
 import { useFormatMoney } from '~/composables/useFormatMoney';
 // Imported explicitly because it is only referenced from the template, where
 // auto-import resolution is not guaranteed.
-import { lineKey, useCart } from '~/composables/useCart';
 import Close from '~/assets/icons/close.svg';
+import { lineKey, useCart } from '~/composables/useCart';
 
 // Figma "Tienda - 8" (node 2017:451). Fixed 572×780 panel anchored under the
 // header on desktop; a full-screen right-to-left sliding panel on mobile.
 const {
-  items, isEmpty, subtotal, isCartOpen,
-  closeCart, updateQuantity, removeFromCart, createCheckout,
+  items,
+  isEmpty,
+  subtotal,
+  isCartOpen,
+  closeCart,
+  updateQuantity,
+  removeFromCart,
+  createCheckout,
 } = useCart();
 
 const { formatMoney } = useFormatMoney();
@@ -32,20 +38,27 @@ let previouslyFocused: HTMLElement | null = null;
 // not, so the page behind keeps scrolling and stays reachable.
 useBodyScrollLock(() => isCartOpen.value && isMobile.value);
 
-const currencyCode = computed(() => items.value[0]?.price.currencyCode ?? 'MXN');
-const formattedTotal = computed(() => formatMoney(subtotal.value, currencyCode.value, { withCode: false }));
+const currencyCode = computed(
+  () => items.value[0]?.price.currencyCode ?? 'MXN',
+);
+const formattedTotal = computed(() =>
+  formatMoney(subtotal.value, currencyCode.value, { withCode: false }),
+);
 
 const isCheckingOut = ref(false);
 const checkoutError = ref('');
 
-const GENERIC_CHECKOUT_ERROR = 'No pudimos iniciar el checkout. Intenta de nuevo.';
+const GENERIC_CHECKOUT_ERROR =
+  'No pudimos iniciar el checkout. Intenta de nuevo.';
 
 // /api/checkout answers 422 with Shopify's own userErrors message, e.g. "The
 // merchandise with id … does not exist." Carts live in localStorage
 // indefinitely, so a deleted or unavailable variant is a realistic failure —
 // and "intenta de nuevo" would be wrong advice, since retrying can't fix it.
 const checkoutErrorMessage = (error: unknown): string => {
-  const data = (error as { data?: { statusMessage?: string; message?: string } })?.data;
+  const data = (
+    error as { data?: { statusMessage?: string; message?: string } }
+  )?.data;
   const message = data?.statusMessage || data?.message;
   return message?.trim() ? message : GENERIC_CHECKOUT_ERROR;
 };
@@ -127,7 +140,10 @@ const restoreFocus = () => {
 };
 
 // Navigating away must never strand the scroll lock.
-watch(() => route.fullPath, () => closeCart());
+watch(
+  () => route.fullPath,
+  () => closeCart(),
+);
 
 onBeforeUnmount(removeListeners);
 </script>
@@ -157,7 +173,10 @@ onBeforeUnmount(removeListeners);
         class="fixed right-0 top-0 z-[100] flex h-[100dvh] w-full flex-col bg-alborota-cream px-[20px] pb-[calc(24px+env(safe-area-inset-bottom))] pt-[12px] will-change-transform md:top-[var(--header-height,88px)] md:h-[780px] md:max-h-[calc(100dvh-var(--header-height,88px)-16px)] md:w-[572px] md:border-b md:border-l md:border-black/[0.12] md:px-[32px] md:pb-[24px]"
       >
         <div class="flex shrink-0 items-center justify-between">
-          <h2 id="cart-popup-title" class="font-abc text-[25px] font-bold leading-[43px] text-alborota-black">
+          <h2
+            id="cart-popup-title"
+            class="font-abc text-[1.5625rem] font-bold leading-[43px] text-alborota-black"
+          >
             Carrito
           </h2>
           <button
@@ -186,40 +205,55 @@ onBeforeUnmount(removeListeners);
           />
         </ul>
 
-        <div v-else class="mt-[48px] flex min-h-0 flex-1 flex-col items-center justify-center gap-[16px] text-center">
-          <p class="font-stevie text-[12px] uppercase leading-[18.7px] text-black/50">
+        <div
+          v-else
+          class="mt-[48px] flex min-h-0 flex-1 flex-col items-center justify-center gap-[16px] text-center"
+        >
+          <p
+            class="font-stevie text-xs uppercase leading-[18.7px] text-black/50"
+          >
             Tu carrito está vacío
           </p>
           <NuxtLink
             to="/tienda"
-            class="font-abc text-[13px] font-bold uppercase leading-[18px] text-alborota-black underline underline-offset-2"
+            class="font-abc text-[0.8125rem] font-bold uppercase leading-[18px] text-alborota-black underline underline-offset-2"
           >
             Ir a la tienda
           </NuxtLink>
         </div>
 
         <div v-if="!isEmpty" class="flex shrink-0 flex-col gap-[10px]">
-          <div class="flex flex-col gap-[2px] border-t border-black py-[12px] font-stevie text-[12px] leading-[18.7px] text-black">
+          <div
+            class="flex flex-col gap-[2px] border-t border-black py-[12px] font-stevie text-xs leading-[18.7px] text-black"
+          >
             <div class="flex items-center justify-between gap-[12px]">
               <span class="uppercase">Costo de envío:</span>
               <span class="text-right">Se calcula en el checkout</span>
             </div>
             <div class="flex items-center justify-between gap-[12px] uppercase">
               <span>Total:</span>
-              <span aria-live="polite" class="text-right">{{ formattedTotal }}</span>
+              <span aria-live="polite" class="text-right">{{
+                formattedTotal
+              }}</span>
             </div>
           </div>
 
           <button
             type="button"
             :disabled="isCheckingOut"
-            class="w-full border border-black bg-white px-[24px] pb-[8px] pt-[12px] font-stevie text-[12px] uppercase leading-[18.7px] text-alborota-black transition-colors hover:bg-alborota-black hover:text-alborota-cream focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-2 focus-visible:outline-alborota-ink disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:bg-white disabled:hover:text-alborota-black"
+            class="w-full border border-black bg-white px-[24px] pb-[8px] pt-[12px] font-stevie text-xs uppercase leading-[18.7px] text-alborota-black transition-colors hover:bg-alborota-black hover:text-alborota-cream focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-2 focus-visible:outline-alborota-ink disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:bg-white disabled:hover:text-alborota-black"
             @click="goToCheckout"
           >
-            <span aria-live="polite">{{ isCheckingOut ? 'Procesando…' : 'Checkout' }}</span>
+            <span aria-live="polite">{{
+              isCheckingOut ? 'Procesando…' : 'Checkout'
+            }}</span>
           </button>
 
-          <p v-if="checkoutError" role="alert" class="font-stevie text-[11px] leading-[16px] text-alborota-danger">
+          <p
+            v-if="checkoutError"
+            role="alert"
+            class="font-stevie text-[0.6875rem] leading-[16px] text-alborota-danger"
+          >
             {{ checkoutError }}
           </p>
         </div>

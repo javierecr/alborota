@@ -40,10 +40,10 @@ const fieldId = (name: string) => `${uid}-${name}`;
     class="flex w-full flex-col gap-[8px] border border-alborota-ink p-[24px]"
     role="status"
   >
-    <p class="font-abc text-[20px] font-bold uppercase leading-[27px] text-alborota-black">
+    <p class="font-abc text-xl font-bold uppercase leading-[27px] text-alborota-black">
       ¡Gracias!
     </p>
-    <p class="font-stevie text-[13px] leading-[24px] text-alborota-ink">
+    <p class="font-stevie text-[0.8125rem] leading-[24px] text-alborota-ink">
       Recibimos tu solicitud. Nos pondremos en contacto contigo muy pronto.
     </p>
   </div>
@@ -250,7 +250,7 @@ const fieldId = (name: string) => `${uid}-${name}`;
       </UiFieldShell>
     </div>
 
-    <p v-if="formError" role="alert" class="font-stevie text-[11px] leading-[16px] text-alborota-danger">
+    <p v-if="formError" role="alert" class="font-stevie text-[0.6875rem] leading-[16px] text-alborota-danger">
       {{ formError }}
     </p>
 

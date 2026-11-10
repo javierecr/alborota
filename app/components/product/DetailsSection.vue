@@ -23,7 +23,7 @@ const zoomIndex = ref<number | null>(null);
       `order-3`; at `md` every `order` resets and the grid takes over.
     -->
     <h1
-      class="order-3 w-full text-center font-abc text-[28px] font-bold uppercase leading-[34px] text-alborota-black md:order-none md:text-[44px] md:leading-[56px]"
+      class="order-3 w-full text-center font-abc text-[1.75rem] font-bold uppercase leading-[34px] text-alborota-black md:order-none md:text-[2.75rem] md:leading-[56px]"
     >
       {{ product.title }}
     </h1>

@@ -21,7 +21,7 @@ const hasImage = computed(() => !!props.image && isFilled.image(props.image));
     class="flex w-full flex-col items-center gap-[48px] py-[56px] lg:gap-[80px] lg:py-[80px] container mx-auto"
   >
     <h1
-      class="w-full px-6 text-center font-abc text-[clamp(28px,4.5vw,44px)] font-bold uppercase leading-[1.27] text-alborota-black"
+      class="w-full px-6 text-center font-abc text-[clamp(1.75rem,4.5vw,2.75rem)] font-bold uppercase leading-[1.27] text-alborota-black"
     >
       {{ heading }}
     </h1>

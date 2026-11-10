@@ -95,20 +95,20 @@ const produccionEnvioHtml = computed(() =>
     <!-- Price + Agregar -->
     <div class="flex w-full flex-col gap-[16px]">
       <div class="flex w-full items-center justify-between gap-[16px]">
-        <p class="font-abc text-[20px] font-bold leading-[30px] text-alborota-ink">{{ formattedPrice }}</p>
+        <p class="font-abc text-xl font-bold leading-[30px] text-alborota-ink">{{ formattedPrice }}</p>
         <UiCta type="submit" :disabled="submitDisabled">
           <span aria-live="polite">{{ submitLabel }}</span>
         </UiCta>
       </div>
-      <p v-if="formError" role="alert" class="font-stevie text-[11px] leading-[16px] text-alborota-danger">
+      <p v-if="formError" role="alert" class="font-stevie text-[0.6875rem] leading-[16px] text-alborota-danger">
         {{ formError }}
       </p>
     </div>
 
     <!-- Detalles -->
     <div v-if="detalles" class="flex w-full flex-col gap-[8px]">
-      <p class="font-stevie text-[12.8px] leading-[24px] text-alborota-ink">Detalles:</p>
-      <p class="whitespace-pre-line font-stevie-book text-[13.5px] leading-[22px] text-alborota-ink">
+      <p class="font-stevie text-[0.8rem] leading-[24px] text-alborota-ink">Detalles:</p>
+      <p class="whitespace-pre-line font-stevie-book text-[0.84375rem] leading-[22px] text-alborota-ink">
         {{ detalles }}
       </p>
     </div>

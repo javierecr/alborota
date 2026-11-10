@@ -38,7 +38,7 @@ const emit = defineEmits<{ 'update:modelValue': [string] }>();
 
       <!-- No metaobject for this value: fall back to the label so the control
            is never a row of blank space. -->
-      <span v-if="!swatch.colors.length" class="font-stevie text-[13px] leading-[24px] text-alborota-ink">
+      <span v-if="!swatch.colors.length" class="font-stevie text-[0.8125rem] leading-[24px] text-alborota-ink">
         {{ swatch.value }}
       </span>
       <template v-else>

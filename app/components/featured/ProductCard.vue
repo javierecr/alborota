@@ -48,17 +48,17 @@ const isAdded = computed(() => props.addedToCart === props.product.id);
 
     <div class="flex items-start justify-between gap-4">
       <div class="flex flex-col gap-2 min-w-0">
-        <p class="font-abc font-bold uppercase text-[15px] leading-[18px] text-[#383839]">
+        <p class="font-abc font-bold uppercase text-[0.9375rem] leading-[18px] text-[#383839]">
           {{ product.title }}
         </p>
-        <p class="font-stevie text-[15px] leading-[18.7px] text-alborota-black">
+        <p class="font-stevie text-[0.9375rem] leading-[18.7px] text-alborota-black">
           {{ price }}
         </p>
       </div>
 
       <button
         type="button"
-        class="shrink-0 font-stevie uppercase text-[15px] leading-[18.7px] text-alborota-black underline underline-offset-2 transition-opacity disabled:no-underline disabled:opacity-50"
+        class="shrink-0 font-stevie uppercase text-[0.9375rem] leading-[18.7px] text-alborota-black underline underline-offset-2 transition-opacity disabled:no-underline disabled:opacity-50"
         :disabled="!hasAvailableVariant || isAdding"
         @click="emit('add-to-cart')"
       >

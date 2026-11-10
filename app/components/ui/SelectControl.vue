@@ -56,11 +56,11 @@ const labelToneClass = computed(() => {
     class="relative flex items-center border pl-[13px] pr-[32px]"
     :class="[sizeClass, borderClass]"
   >
-    <span class="truncate font-stevie text-[13px] leading-[24px]" :class="labelToneClass">
+    <span class="truncate font-stevie text-[0.8125rem] leading-[24px]" :class="labelToneClass">
       {{ selectedLabel }}
     </span>
 
-    <span v-if="selectedHint" class="ml-auto truncate pl-[12px] font-stevie text-[13px] leading-[24px] text-alborota-ink/60">
+    <span v-if="selectedHint" class="ml-auto truncate pl-[12px] font-stevie text-[0.8125rem] leading-[24px] text-alborota-ink/60">
       {{ selectedHint }}
     </span>
 

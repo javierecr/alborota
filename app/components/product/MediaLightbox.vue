@@ -84,7 +84,7 @@ onBeforeUnmount(() => {
       @keydown="onKeydown"
     >
       <div class="flex shrink-0 items-center justify-between px-[16px] py-[16px] md:px-[24px]">
-        <span class="font-stevie text-[13px] leading-[24px] text-alborota-ink" aria-live="polite">
+        <span class="font-stevie text-[0.8125rem] leading-[24px] text-alborota-ink" aria-live="polite">
           {{ activeIndex + 1 }} / {{ total }}
         </span>
         <button

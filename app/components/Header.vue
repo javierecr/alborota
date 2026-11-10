@@ -49,7 +49,7 @@ const toggleCart = () => (isCartOpen.value ? closeCart() : openCart());
         @click="toggleCart"
       >
         <Cart class="w-auto h-4" />
-        <span class="absolute left-[55%] top-[64%] whitespace-nowrap font-stevie-book text-[11px] leading-[14px]">( {{ itemCount }} )</span>
+        <span class="absolute left-[55%] top-[64%] whitespace-nowrap font-stevie-book text-[0.6875rem] leading-[14px]">( {{ itemCount }} )</span>
       </button>
     </div>
   </header>

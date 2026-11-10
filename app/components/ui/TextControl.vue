@@ -65,7 +65,7 @@ const toneClass = computed(() =>
     :autocomplete="autocomplete"
     :aria-invalid="invalid || undefined"
     :aria-describedby="describedby"
-    class="w-full border bg-transparent font-stevie text-[13px] leading-[24px] text-alborota-ink outline-none focus-visible:border-alborota-ink"
+    class="w-full border bg-transparent font-stevie text-[0.8125rem] leading-[24px] text-alborota-ink outline-none focus-visible:border-alborota-ink"
     :class="[sizeClass, toneClass, borderClass]"
     @input="emit('update:modelValue', ($event.target as HTMLInputElement).value)"
     @blur="emit('blur')"

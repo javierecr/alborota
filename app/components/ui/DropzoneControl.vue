@@ -132,7 +132,7 @@ const borderClass = computed(() => {
   return dragging.value ? 'border-alborota-black' : 'border-alborota-ink';
 });
 
-const hintClass = 'font-stevie text-[13px] leading-[24px] text-alborota-ink/50';
+const hintClass = 'font-stevie text-[0.8125rem] leading-[24px] text-alborota-ink/50';
 </script>
 
 <template>
@@ -190,7 +190,7 @@ const hintClass = 'font-stevie text-[13px] leading-[24px] text-alborota-ink/50';
       <button
         v-if="previews.length < maxFiles"
         type="button"
-        class="shrink-0 border-t border-alborota-ink/[0.12] py-[8px] text-center font-stevie text-[13px] leading-[24px] text-alborota-ink/50 transition-colors hover:text-alborota-ink focus-visible:outline focus-visible:outline-1 focus-visible:-outline-offset-2 focus-visible:outline-alborota-ink"
+        class="shrink-0 border-t border-alborota-ink/[0.12] py-[8px] text-center font-stevie text-[0.8125rem] leading-[24px] text-alborota-ink/50 transition-colors hover:text-alborota-ink focus-visible:outline focus-visible:outline-1 focus-visible:-outline-offset-2 focus-visible:outline-alborota-ink"
         @click="openPicker"
       >
         Agregar más

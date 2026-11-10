@@ -47,11 +47,11 @@ const metaItems = computed<MetaItem[]>(() => {
 
     <div class="flex flex-col gap-6">
       <div class="flex flex-col gap-3">
-        <p class="font-abc font-bold uppercase text-[15px] leading-[18px] text-[#383839]">
+        <p class="font-abc font-bold uppercase text-[0.9375rem] leading-[18px] text-[#383839]">
           {{ project.title }}
         </p>
         <div
-          class="font-stevie-book text-[13.5px] leading-[22px] text-alborota-black min-h-[44px] [&>*]:line-clamp-2"
+          class="font-stevie-book text-[0.84375rem] leading-[22px] text-alborota-black min-h-[44px] [&>*]:line-clamp-2"
         >
           <PrismicRichText :field="project.description" />
         </div>
@@ -59,7 +59,7 @@ const metaItems = computed<MetaItem[]>(() => {
 
       <div
         v-if="metaItems.length"
-        class="flex flex-wrap items-center gap-3 font-stevie uppercase text-[10.8px] leading-[18.7px] text-alborota-black"
+        class="flex flex-wrap items-center gap-3 font-stevie uppercase text-[0.675rem] leading-[18.7px] text-alborota-black"
       >
         <template v-for="(item, i) in metaItems" :key="i">
           <span v-if="i > 0" aria-hidden="true">|</span>

@@ -31,9 +31,9 @@ const props = withDefaults(
 const uid = useId();
 const errorId = computed(() => (props.error ? `${uid}-error` : undefined));
 
-const labelClass = 'font-stevie text-[12.8px] leading-[24px] text-alborota-ink';
+const labelClass = 'font-stevie text-[0.8rem] leading-[24px] text-alborota-ink';
 const errorClass = computed(() => [
-  'font-stevie text-[11px] leading-[16px] text-alborota-danger',
+  'font-stevie text-[0.6875rem] leading-[16px] text-alborota-danger',
   props.floatingError ? 'absolute left-0 top-full mt-[2px] w-full' : '',
 ]);
 </script>

@@ -9,7 +9,7 @@ withDefaults(defineProps<{ title: string; open?: boolean }>(), { open: false });
 <template>
   <details class="group w-full border-y border-alborota-ink/[0.12] py-px" :open="open">
     <summary
-      class="flex cursor-pointer list-none items-center justify-between py-[20px] pr-[20px] font-stevie-book text-[13.5px] leading-[22px] text-alborota-ink"
+      class="flex cursor-pointer list-none items-center justify-between py-[20px] pr-[20px] font-stevie-book text-[0.84375rem] leading-[22px] text-alborota-ink"
     >
       <span>{{ title }}</span>
       <span
@@ -20,7 +20,7 @@ withDefaults(defineProps<{ title: string; open?: boolean }>(), { open: false });
       </span>
     </summary>
 
-    <div class="pb-[20px] font-stevie-book text-[13.5px] leading-[22px] text-alborota-ink">
+    <div class="pb-[20px] font-stevie-book text-[0.84375rem] leading-[22px] text-alborota-ink">
       <slot />
     </div>
   </details>

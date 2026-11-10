@@ -1,13 +1,15 @@
 <script setup lang="ts">
-import type { Content } from "@prismicio/client";
-import { isFilled } from "@prismicio/client";
+import type { Content } from '@prismicio/client';
+import { isFilled } from '@prismicio/client';
 
-const props = defineProps(getSliceComponentProps<Content.BannerWithTextSlice>());
+const props = defineProps(
+  getSliceComponentProps<Content.BannerWithTextSlice>(),
+);
 
 type TextPosition = NonNullable<
-  Content.BannerWithTextSliceDefaultPrimary["text_position"]
+  Content.BannerWithTextSliceDefaultPrimary['text_position']
 >;
-type HorizontalAlign = "Left" | "Center" | "Right";
+type HorizontalAlign = 'Left' | 'Center' | 'Right';
 
 /**
  * Height of everything inside the section that is NOT the photo: the page
@@ -18,7 +20,7 @@ type HorizontalAlign = "Left" | "Center" | "Right";
  *
  * NOTE: if the gutter or the frame padding below changes, update these numbers.
  */
-const CHROME_VARS = "[--bwt-chrome:48px] md:[--bwt-chrome:107px]";
+const CHROME_VARS = '[--bwt-chrome:48px] md:[--bwt-chrome:107px]';
 
 /**
  * Sizing of the box the photo lives in. Every class below is a full literal
@@ -27,20 +29,20 @@ const CHROME_VARS = "[--bwt-chrome:48px] md:[--bwt-chrome:107px]";
  */
 const mediaClass = computed(() => {
   switch (props.slice.primary.image_height) {
-    case "Screen":
-      return "h-[calc(100dvh-var(--header-height,88px)-var(--bwt-chrome))] min-h-[340px]";
-    case "Auto":
-      return "";
+    case 'Screen':
+      return 'h-[calc(100dvh-var(--header-height,88px)-var(--bwt-chrome))] min-h-[340px]';
+    case 'Auto':
+      return '';
     default: // "1/0.6"
-      return "aspect-[1/0.6] min-h-[340px] max-h-[calc(100dvh-var(--header-height,88px)-var(--bwt-chrome))]";
+      return 'aspect-[1/0.6] min-h-[340px] max-h-[calc(100dvh-var(--header-height,88px)-var(--bwt-chrome))]';
   }
 });
 
 /** "Auto" lets the image set its own height; the other modes fill the sized box. */
 const imageClass = computed(() =>
-  props.slice.primary.image_height === "Auto"
-    ? "w-full h-auto min-h-[340px] md:min-h-0 object-cover object-center"
-    : "absolute inset-0 w-full h-full object-cover object-center",
+  props.slice.primary.image_height === 'Auto'
+    ? 'w-full h-auto min-h-[340px] md:min-h-0 object-cover object-center'
+    : 'absolute inset-0 w-full h-full object-cover object-center',
 );
 
 /**
@@ -48,35 +50,37 @@ const imageClass = computed(() =>
  * must never be built by concatenation.
  */
 const POSITION_CLASS: Record<TextPosition, string> = {
-  "Left Top": "justify-start items-start",
-  "Center Top": "justify-center items-start",
-  "Right Top": "justify-end items-start",
-  "Left Center": "justify-start items-center",
-  "Center Center": "justify-center items-center",
-  "Right Center": "justify-end items-center",
-  "Left Bottom": "justify-start items-end",
-  "Center Bottom": "justify-center items-end",
-  "Right Bottom": "justify-end items-end",
+  'Left Top': 'justify-start items-start',
+  'Center Top': 'justify-center items-start',
+  'Right Top': 'justify-end items-start',
+  'Left Center': 'justify-start items-center',
+  'Center Center': 'justify-center items-center',
+  'Right Center': 'justify-end items-center',
+  'Left Bottom': 'justify-start items-end',
+  'Center Bottom': 'justify-center items-end',
+  'Right Bottom': 'justify-end items-end',
 };
 
 /** Cross-axis alignment inside the column — moves the hug-width CTA chip. */
 const COLUMN_ALIGN_CLASS: Record<HorizontalAlign, string> = {
-  Left: "items-start",
-  Center: "items-center",
-  Right: "items-end",
+  Left: 'items-start',
+  Center: 'items-center',
+  Right: 'items-end',
 };
 
 const position = computed<TextPosition>(
-  () => props.slice.primary.text_position ?? "Left Bottom",
+  () => props.slice.primary.text_position ?? 'Left Bottom',
 );
 const overlayClass = computed(() => POSITION_CLASS[position.value]);
 const columnAlignClass = computed(
   () =>
-    COLUMN_ALIGN_CLASS[position.value.split(" ")[0] as HorizontalAlign] ??
+    COLUMN_ALIGN_CLASS[position.value.split(' ')[0] as HorizontalAlign] ??
     COLUMN_ALIGN_CLASS.Left,
 );
 
-const hasHeading = computed(() => isFilled.keyText(props.slice.primary.heading));
+const hasHeading = computed(() =>
+  isFilled.keyText(props.slice.primary.heading),
+);
 const hasCta = computed(() => isFilled.link(props.slice.primary.cta));
 const hasText = computed(() => isFilled.richText(props.slice.primary.text));
 const hasOverlay = computed(
@@ -117,7 +121,7 @@ const hasOverlay = computed(
           >
             <h2
               v-if="hasHeading"
-              class="w-full bg-alborota-paper/90 px-[16px] py-[6px] md:px-[24px] md:py-[8px] text-center font-abc font-bold uppercase leading-[1.2] text-alborota-black text-[clamp(22px,2.8vw,40px)]"
+              class="w-full bg-alborota-paper/90 px-[16px] py-[6px] md:px-[24px] md:py-[8px] text-center font-abc font-bold uppercase leading-[1.2] text-alborota-black text-[clamp(1.375rem,2.8vw,2.5rem)]"
             >
               {{ slice.primary.heading }}
             </h2>
@@ -125,12 +129,12 @@ const hasOverlay = computed(
             <PrismicLink
               v-if="hasCta"
               :field="slice.primary.cta"
-              class="inline-flex max-w-full items-center bg-alborota-stone px-[4px] py-[7px] font-abc font-bold uppercase leading-[18px] text-alborota-black text-[clamp(13px,1.05vw,15px)]"
+              class="inline-flex max-w-full items-center bg-alborota-stone px-[4px] py-[7px] font-abc font-bold uppercase leading-[18px] text-alborota-black text-[clamp(0.8125rem,1.05vw,0.9375rem)]"
             />
 
             <div
               v-if="hasText"
-              class="w-full max-w-[457px] bg-alborota-paper/90 px-[12px] py-[10px] text-left font-stevie !leading-[1.4] text-alborota-black text-[clamp(13px,1vw,15px)] [&_a]:underline"
+              class="w-full max-w-[457px] bg-alborota-paper/90 px-[12px] py-[10px] text-left font-stevie !leading-[1.4] text-alborota-black text-[clamp(0.8125rem,1vw,0.9375rem)] [&_a]:underline"
             >
               <PrismicRichText :field="slice.primary.text" />
             </div>
