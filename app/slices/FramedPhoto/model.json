@@ -7,7 +7,7 @@
       "description": "Default",
       "docURL": "",
       "id": "default",
-      "imageUrl": "",
+      "imageUrl": "https://images.prismic.io/alborota/shared-slices/framed_photo/default/10590b96d7448f8f8e73ad208d53b48a9db8b1e0.png?auto=compress%2Cformat",
       "name": "With Caption",
       "primary": {
         "image": {
@@ -86,7 +86,7 @@
       "description": "Image Only",
       "docURL": "",
       "id": "imageOnly",
-      "imageUrl": "",
+      "imageUrl": "https://images.prismic.io/alborota/shared-slices/framed_photo/imageOnly/ebfb230ebb057eb99fa1f7e60120eb1b778c1a2e.png?auto=compress%2Cformat",
       "name": "Image Only",
       "primary": {
         "image": {
