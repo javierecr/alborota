@@ -1,0 +1,133 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"image": {
+				"origin": {
+					"id": "main",
+					"url": "https://images.unsplash.com/photo-1589321599763-d66926c29613",
+					"width": 3168,
+					"height": 4752
+				},
+				"url": "https://images.unsplash.com/photo-1589321599763-d66926c29613",
+				"width": 3168,
+				"height": 4752,
+				"edit": {
+					"zoom": 1,
+					"crop": {
+						"x": 0,
+						"y": 0
+					},
+					"background": "transparent"
+				},
+				"alt": null,
+				"credits": null,
+				"__TYPE__": "ImageContent",
+				"thumbnails": {}
+			},
+			"image_height": {
+				"__TYPE__": "FieldContent",
+				"value": "1/0.6",
+				"type": "Select"
+			},
+			"vertical_layout": {
+				"__TYPE__": "FieldContent",
+				"value": "Spread",
+				"type": "Select"
+			},
+			"text_blocks": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"kind",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "Body",
+									"type": "Select"
+								}
+							],
+							[
+								"text",
+								{
+									"__TYPE__": "StructuredTextContent",
+									"value": [
+										{
+											"type": "paragraph",
+											"content": {
+												"text": "Siempre he sido muy manual y, después de tener algo de experiencia en unos trabajos aprendí a convertir esos dibujos en algo más físico, donde el color juega un papel muy importante."
+											}
+										}
+									]
+								}
+							],
+							[
+								"position",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "Left",
+									"type": "Select"
+								}
+							],
+							[
+								"tilt",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "Right",
+									"type": "Select"
+								}
+							]
+						]
+					},
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"kind",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "Heading",
+									"type": "Select"
+								}
+							],
+							[
+								"text",
+								{
+									"__TYPE__": "StructuredTextContent",
+									"value": [
+										{
+											"type": "paragraph",
+											"content": {
+												"text": "¿Cómo se identifica el proyecto hoy en día?"
+											}
+										}
+									]
+								}
+							],
+							[
+								"position",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "Center",
+									"type": "Select"
+								}
+							],
+							[
+								"tilt",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "Left",
+									"type": "Select"
+								}
+							]
+						]
+					}
+				]
+			}
+		},
+		"items": []
+	}
+]

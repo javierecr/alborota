@@ -1,0 +1,43 @@
+{
+  "id": "heading_with_quote",
+  "name": "HeadingWithQuote",
+  "type": "SharedSlice",
+  "variations": [
+    {
+      "description": "Default",
+      "docURL": "",
+      "id": "default",
+      "imageUrl": "",
+      "name": "Default",
+      "primary": {
+        "heading": {
+          "config": {
+            "label": "Heading"
+          },
+          "type": "Text"
+        },
+        "heading_tilt": {
+          "config": {
+            "default_value": "Left",
+            "label": "Heading Tilt",
+            "options": [
+              "None",
+              "Left",
+              "Right"
+            ]
+          },
+          "type": "Select"
+        },
+        "quote": {
+          "config": {
+            "allowTargetBlank": true,
+            "label": "Quote",
+            "single": "paragraph,hyperlink"
+          },
+          "type": "StructuredText"
+        }
+      },
+      "version": ""
+    }
+  ]
+}

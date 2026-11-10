@@ -1,0 +1,69 @@
+{
+  "id": "framed_photo_grid",
+  "name": "FramedPhotoGrid",
+  "type": "SharedSlice",
+  "variations": [
+    {
+      "description": "Default",
+      "docURL": "",
+      "id": "default",
+      "imageUrl": "",
+      "name": "Default",
+      "primary": {
+        "frame_color": {
+          "config": {
+            "default_value": "Olive",
+            "label": "Frame Color",
+            "options": [
+              "Olive",
+              "Pink",
+              "Orange",
+              "Grass",
+              "Cream",
+              "Beige"
+            ]
+          },
+          "type": "Select"
+        },
+        "columns": {
+          "config": {
+            "default_value": "2",
+            "label": "Columns",
+            "options": [
+              "2",
+              "3"
+            ]
+          },
+          "type": "Select"
+        },
+        "photos": {
+          "config": {
+            "fields": {
+              "image": {
+                "config": {
+                  "label": "Image"
+                },
+                "type": "Image"
+              },
+              "name": {
+                "config": {
+                  "label": "Name"
+                },
+                "type": "Text"
+              },
+              "role": {
+                "config": {
+                  "label": "Role"
+                },
+                "type": "Text"
+              }
+            },
+            "label": "Photos"
+          },
+          "type": "Group"
+        }
+      },
+      "version": ""
+    }
+  ]
+}

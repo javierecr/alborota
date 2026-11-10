@@ -596,7 +596,7 @@ interface LegalPageDocumentData {
  */
 export type LegalPageDocument<Lang extends string = string> = prismic.PrismicDocumentWithUID<Simplify<LegalPageDocumentData>, "legal_page", Lang>;
 
-type NosotrosDocumentDataSlicesSlice = FeaturedProjectsSlice | BannerWithTextSlice
+type NosotrosDocumentDataSlicesSlice = FeaturedProjectsSlice | BannerWithTextSlice | CollageBannerSlice | HeadingWithQuoteSlice | FramedPhotoGridSlice | FramedPhotoSlice
 
 /**
  * Content for Nosotros documents
@@ -1090,6 +1090,134 @@ type BannerWithTextSliceVariation = BannerWithTextSliceDefault
 export type BannerWithTextSlice = prismic.SharedSlice<"banner_with_text", BannerWithTextSliceVariation>;
 
 /**
+ * Item in *CollageBanner → Default → Primary → Text blocks*
+ */
+export interface CollageBannerSliceDefaultPrimaryTextBlocksItem {
+	/**
+	 * Kind field in *CollageBanner → Default → Primary → Text blocks*
+	 *
+	 * - **Field Type**: Select
+	 * - **Placeholder**: *None*
+	 * - **Default Value**: Body
+	 * - **API ID Path**: collage_banner.default.primary.text_blocks[].kind
+	 * - **Documentation**: https://prismic.io/docs/fields/select
+	 */
+	kind: prismic.SelectField<"Heading" | "Body", "filled">;
+	
+	/**
+	 * Text field in *CollageBanner → Default → Primary → Text blocks*
+	 *
+	 * - **Field Type**: Rich Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: collage_banner.default.primary.text_blocks[].text
+	 * - **Documentation**: https://prismic.io/docs/fields/rich-text
+	 */
+	text: prismic.RichTextField;
+	
+	/**
+	 * Position field in *CollageBanner → Default → Primary → Text blocks*
+	 *
+	 * - **Field Type**: Select
+	 * - **Placeholder**: *None*
+	 * - **Default Value**: Left
+	 * - **API ID Path**: collage_banner.default.primary.text_blocks[].position
+	 * - **Documentation**: https://prismic.io/docs/fields/select
+	 */
+	position: prismic.SelectField<"Left" | "Center" | "Right", "filled">;
+	
+	/**
+	 * Tilt field in *CollageBanner → Default → Primary → Text blocks*
+	 *
+	 * - **Field Type**: Select
+	 * - **Placeholder**: *None*
+	 * - **Default Value**: None
+	 * - **API ID Path**: collage_banner.default.primary.text_blocks[].tilt
+	 * - **Documentation**: https://prismic.io/docs/fields/select
+	 */
+	tilt: prismic.SelectField<"None" | "Left" | "Right", "filled">;
+}
+
+/**
+ * Primary content in *CollageBanner → Default → Primary*
+ */
+export interface CollageBannerSliceDefaultPrimary {
+	/**
+	 * Image field in *CollageBanner → Default → Primary*
+	 *
+	 * - **Field Type**: Image
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: collage_banner.default.primary.image
+	 * - **Documentation**: https://prismic.io/docs/fields/image
+	 */
+	image: prismic.ImageField<never>;
+	
+	/**
+	 * Image Mobile (optional) field in *CollageBanner → Default → Primary*
+	 *
+	 * - **Field Type**: Image
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: collage_banner.default.primary.image_mobile
+	 * - **Documentation**: https://prismic.io/docs/fields/image
+	 */
+	image_mobile: prismic.ImageField<never>;
+	
+	/**
+	 * Image Height field in *CollageBanner → Default → Primary*
+	 *
+	 * - **Field Type**: Select
+	 * - **Placeholder**: *None*
+	 * - **Default Value**: 1/0.35
+	 * - **API ID Path**: collage_banner.default.primary.image_height
+	 * - **Documentation**: https://prismic.io/docs/fields/select
+	 */
+	image_height: prismic.SelectField<"1/0.35" | "Screen" | "Auto", "filled">;
+	
+	/**
+	 * Vertical Layout field in *CollageBanner → Default → Primary*
+	 *
+	 * - **Field Type**: Select
+	 * - **Placeholder**: *None*
+	 * - **Default Value**: Spread
+	 * - **API ID Path**: collage_banner.default.primary.vertical_layout
+	 * - **Documentation**: https://prismic.io/docs/fields/select
+	 */
+	vertical_layout: prismic.SelectField<"Spread" | "Top" | "Center" | "Bottom", "filled">;
+	
+	/**
+	 * Text blocks field in *CollageBanner → Default → Primary*
+	 *
+	 * - **Field Type**: Group
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: collage_banner.default.primary.text_blocks[]
+	 * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+	 */
+	text_blocks: prismic.GroupField<Simplify<CollageBannerSliceDefaultPrimaryTextBlocksItem>>;
+}
+
+/**
+ * Default variation for CollageBanner Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type CollageBannerSliceDefault = prismic.SharedSliceVariation<"default", Simplify<CollageBannerSliceDefaultPrimary>, never>;
+
+/**
+ * Slice variation for *CollageBanner*
+ */
+type CollageBannerSliceVariation = CollageBannerSliceDefault
+
+/**
+ * CollageBanner Shared Slice
+ *
+ * - **API ID**: `collage_banner`
+ * - **Description**: CollageBanner
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type CollageBannerSlice = prismic.SharedSlice<"collage_banner", CollageBannerSliceVariation>;
+
+/**
  * Item in *ColorBackgroundBanner → Default → Primary → Text blocks*
  */
 export interface ColorBackgroundBannerSliceDefaultPrimaryTextBlocksItem {
@@ -1338,6 +1466,330 @@ type FeaturedProjectsSliceVariation = FeaturedProjectsSliceDefault
 export type FeaturedProjectsSlice = prismic.SharedSlice<"featured_projects", FeaturedProjectsSliceVariation>;
 
 /**
+ * Primary content in *FramedPhoto → With Caption → Primary*
+ */
+export interface FramedPhotoSliceDefaultPrimary {
+	/**
+	 * Image field in *FramedPhoto → With Caption → Primary*
+	 *
+	 * - **Field Type**: Image
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: framed_photo.default.primary.image
+	 * - **Documentation**: https://prismic.io/docs/fields/image
+	 */
+	image: prismic.ImageField<never>;
+	
+	/**
+	 * Name field in *FramedPhoto → With Caption → Primary*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: framed_photo.default.primary.name
+	 * - **Documentation**: https://prismic.io/docs/fields/text
+	 */
+	name: prismic.KeyTextField;
+	
+	/**
+	 * Role field in *FramedPhoto → With Caption → Primary*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: framed_photo.default.primary.role
+	 * - **Documentation**: https://prismic.io/docs/fields/text
+	 */
+	role: prismic.KeyTextField;
+	
+	/**
+	 * Frame Color field in *FramedPhoto → With Caption → Primary*
+	 *
+	 * - **Field Type**: Select
+	 * - **Placeholder**: *None*
+	 * - **Default Value**: Pink
+	 * - **API ID Path**: framed_photo.default.primary.frame_color
+	 * - **Documentation**: https://prismic.io/docs/fields/select
+	 */
+	frame_color: prismic.SelectField<"Olive" | "Pink" | "Orange" | "Grass" | "Cream" | "Beige", "filled">;
+	
+	/**
+	 * Image Align field in *FramedPhoto → With Caption → Primary*
+	 *
+	 * - **Field Type**: Select
+	 * - **Placeholder**: *None*
+	 * - **Default Value**: Left
+	 * - **API ID Path**: framed_photo.default.primary.image_align
+	 * - **Documentation**: https://prismic.io/docs/fields/select
+	 */
+	image_align: prismic.SelectField<"Left" | "Right", "filled">;
+	
+	/**
+	 * Image Ratio field in *FramedPhoto → With Caption → Primary*
+	 *
+	 * - **Field Type**: Select
+	 * - **Placeholder**: *None*
+	 * - **Default Value**: 3/2
+	 * - **API ID Path**: framed_photo.default.primary.image_ratio
+	 * - **Documentation**: https://prismic.io/docs/fields/select
+	 */
+	image_ratio: prismic.SelectField<"3/2" | "2/1" | "16/9" | "Auto", "filled">;
+	
+	/**
+	 * Tilt field in *FramedPhoto → With Caption → Primary*
+	 *
+	 * - **Field Type**: Select
+	 * - **Placeholder**: *None*
+	 * - **Default Value**: Left
+	 * - **API ID Path**: framed_photo.default.primary.tilt
+	 * - **Documentation**: https://prismic.io/docs/fields/select
+	 */
+	tilt: prismic.SelectField<"None" | "Left" | "Right", "filled">;
+}
+
+/**
+ * With Caption variation for FramedPhoto Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type FramedPhotoSliceDefault = prismic.SharedSliceVariation<"default", Simplify<FramedPhotoSliceDefaultPrimary>, never>;
+
+/**
+ * Primary content in *FramedPhoto → Image Only → Primary*
+ */
+export interface FramedPhotoSliceImageOnlyPrimary {
+	/**
+	 * Image field in *FramedPhoto → Image Only → Primary*
+	 *
+	 * - **Field Type**: Image
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: framed_photo.imageOnly.primary.image
+	 * - **Documentation**: https://prismic.io/docs/fields/image
+	 */
+	image: prismic.ImageField<never>;
+	
+	/**
+	 * Frame Color field in *FramedPhoto → Image Only → Primary*
+	 *
+	 * - **Field Type**: Select
+	 * - **Placeholder**: *None*
+	 * - **Default Value**: Pink
+	 * - **API ID Path**: framed_photo.imageOnly.primary.frame_color
+	 * - **Documentation**: https://prismic.io/docs/fields/select
+	 */
+	frame_color: prismic.SelectField<"Olive" | "Pink" | "Orange" | "Grass" | "Cream" | "Beige", "filled">;
+	
+	/**
+	 * Image Align field in *FramedPhoto → Image Only → Primary*
+	 *
+	 * - **Field Type**: Select
+	 * - **Placeholder**: *None*
+	 * - **Default Value**: Left
+	 * - **API ID Path**: framed_photo.imageOnly.primary.image_align
+	 * - **Documentation**: https://prismic.io/docs/fields/select
+	 */
+	image_align: prismic.SelectField<"Left" | "Right", "filled">;
+	
+	/**
+	 * Image Ratio field in *FramedPhoto → Image Only → Primary*
+	 *
+	 * - **Field Type**: Select
+	 * - **Placeholder**: *None*
+	 * - **Default Value**: 2/1
+	 * - **API ID Path**: framed_photo.imageOnly.primary.image_ratio
+	 * - **Documentation**: https://prismic.io/docs/fields/select
+	 */
+	image_ratio: prismic.SelectField<"3/2" | "2/1" | "16/9" | "Auto", "filled">;
+	
+	/**
+	 * Tilt field in *FramedPhoto → Image Only → Primary*
+	 *
+	 * - **Field Type**: Select
+	 * - **Placeholder**: *None*
+	 * - **Default Value**: Left
+	 * - **API ID Path**: framed_photo.imageOnly.primary.tilt
+	 * - **Documentation**: https://prismic.io/docs/fields/select
+	 */
+	tilt: prismic.SelectField<"None" | "Left" | "Right", "filled">;
+}
+
+/**
+ * Image Only variation for FramedPhoto Slice
+ *
+ * - **API ID**: `imageOnly`
+ * - **Description**: Image Only
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type FramedPhotoSliceImageOnly = prismic.SharedSliceVariation<"imageOnly", Simplify<FramedPhotoSliceImageOnlyPrimary>, never>;
+
+/**
+ * Slice variation for *FramedPhoto*
+ */
+type FramedPhotoSliceVariation = FramedPhotoSliceDefault | FramedPhotoSliceImageOnly
+
+/**
+ * FramedPhoto Shared Slice
+ *
+ * - **API ID**: `framed_photo`
+ * - **Description**: *None*
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type FramedPhotoSlice = prismic.SharedSlice<"framed_photo", FramedPhotoSliceVariation>;
+
+/**
+ * Item in *FramedPhotoGrid → Default → Primary → Photos*
+ */
+export interface FramedPhotoGridSliceDefaultPrimaryPhotosItem {
+	/**
+	 * Image field in *FramedPhotoGrid → Default → Primary → Photos*
+	 *
+	 * - **Field Type**: Image
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: framed_photo_grid.default.primary.photos[].image
+	 * - **Documentation**: https://prismic.io/docs/fields/image
+	 */
+	image: prismic.ImageField<never>;
+	
+	/**
+	 * Name field in *FramedPhotoGrid → Default → Primary → Photos*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: framed_photo_grid.default.primary.photos[].name
+	 * - **Documentation**: https://prismic.io/docs/fields/text
+	 */
+	name: prismic.KeyTextField;
+	
+	/**
+	 * Role field in *FramedPhotoGrid → Default → Primary → Photos*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: framed_photo_grid.default.primary.photos[].role
+	 * - **Documentation**: https://prismic.io/docs/fields/text
+	 */
+	role: prismic.KeyTextField;
+}
+
+/**
+ * Primary content in *FramedPhotoGrid → Default → Primary*
+ */
+export interface FramedPhotoGridSliceDefaultPrimary {
+	/**
+	 * Frame Color field in *FramedPhotoGrid → Default → Primary*
+	 *
+	 * - **Field Type**: Select
+	 * - **Placeholder**: *None*
+	 * - **Default Value**: Olive
+	 * - **API ID Path**: framed_photo_grid.default.primary.frame_color
+	 * - **Documentation**: https://prismic.io/docs/fields/select
+	 */
+	frame_color: prismic.SelectField<"Olive" | "Pink" | "Orange" | "Grass" | "Cream" | "Beige", "filled">;
+	
+	/**
+	 * Columns field in *FramedPhotoGrid → Default → Primary*
+	 *
+	 * - **Field Type**: Select
+	 * - **Placeholder**: *None*
+	 * - **Default Value**: 2
+	 * - **API ID Path**: framed_photo_grid.default.primary.columns
+	 * - **Documentation**: https://prismic.io/docs/fields/select
+	 */
+	columns: prismic.SelectField<"2" | "3", "filled">;
+	
+	/**
+	 * Photos field in *FramedPhotoGrid → Default → Primary*
+	 *
+	 * - **Field Type**: Group
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: framed_photo_grid.default.primary.photos[]
+	 * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+	 */
+	photos: prismic.GroupField<Simplify<FramedPhotoGridSliceDefaultPrimaryPhotosItem>>;
+}
+
+/**
+ * Default variation for FramedPhotoGrid Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type FramedPhotoGridSliceDefault = prismic.SharedSliceVariation<"default", Simplify<FramedPhotoGridSliceDefaultPrimary>, never>;
+
+/**
+ * Slice variation for *FramedPhotoGrid*
+ */
+type FramedPhotoGridSliceVariation = FramedPhotoGridSliceDefault
+
+/**
+ * FramedPhotoGrid Shared Slice
+ *
+ * - **API ID**: `framed_photo_grid`
+ * - **Description**: *None*
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type FramedPhotoGridSlice = prismic.SharedSlice<"framed_photo_grid", FramedPhotoGridSliceVariation>;
+
+/**
+ * Primary content in *HeadingWithQuote → Default → Primary*
+ */
+export interface HeadingWithQuoteSliceDefaultPrimary {
+	/**
+	 * Heading field in *HeadingWithQuote → Default → Primary*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: heading_with_quote.default.primary.heading
+	 * - **Documentation**: https://prismic.io/docs/fields/text
+	 */
+	heading: prismic.KeyTextField;
+	
+	/**
+	 * Heading Tilt field in *HeadingWithQuote → Default → Primary*
+	 *
+	 * - **Field Type**: Select
+	 * - **Placeholder**: *None*
+	 * - **Default Value**: Left
+	 * - **API ID Path**: heading_with_quote.default.primary.heading_tilt
+	 * - **Documentation**: https://prismic.io/docs/fields/select
+	 */
+	heading_tilt: prismic.SelectField<"None" | "Left" | "Right", "filled">;
+	
+	/**
+	 * Quote field in *HeadingWithQuote → Default → Primary*
+	 *
+	 * - **Field Type**: Rich Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: heading_with_quote.default.primary.quote
+	 * - **Documentation**: https://prismic.io/docs/fields/rich-text
+	 */
+	quote: prismic.RichTextField;
+}
+
+/**
+ * Default variation for HeadingWithQuote Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type HeadingWithQuoteSliceDefault = prismic.SharedSliceVariation<"default", Simplify<HeadingWithQuoteSliceDefaultPrimary>, never>;
+
+/**
+ * Slice variation for *HeadingWithQuote*
+ */
+type HeadingWithQuoteSliceVariation = HeadingWithQuoteSliceDefault
+
+/**
+ * HeadingWithQuote Shared Slice
+ *
+ * - **API ID**: `heading_with_quote`
+ * - **Description**: *None*
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type HeadingWithQuoteSlice = prismic.SharedSlice<"heading_with_quote", HeadingWithQuoteSliceVariation>;
+
+/**
  * Primary content in *ImageWithText → Default → Primary*
  */
 export interface ImageWithTextSliceDefaultPrimary {
@@ -1501,6 +1953,11 @@ declare module "@prismicio/client" {
 			BannerWithTextSliceDefaultPrimary,
 			BannerWithTextSliceVariation,
 			BannerWithTextSliceDefault,
+			CollageBannerSlice,
+			CollageBannerSliceDefaultPrimaryTextBlocksItem,
+			CollageBannerSliceDefaultPrimary,
+			CollageBannerSliceVariation,
+			CollageBannerSliceDefault,
 			ColorBackgroundBannerSlice,
 			ColorBackgroundBannerSliceDefaultPrimaryTextBlocksItem,
 			ColorBackgroundBannerSliceDefaultPrimary,
@@ -1517,6 +1974,21 @@ declare module "@prismicio/client" {
 			FeaturedProjectsSliceDefaultPrimary,
 			FeaturedProjectsSliceVariation,
 			FeaturedProjectsSliceDefault,
+			FramedPhotoSlice,
+			FramedPhotoSliceDefaultPrimary,
+			FramedPhotoSliceImageOnlyPrimary,
+			FramedPhotoSliceVariation,
+			FramedPhotoSliceDefault,
+			FramedPhotoSliceImageOnly,
+			FramedPhotoGridSlice,
+			FramedPhotoGridSliceDefaultPrimaryPhotosItem,
+			FramedPhotoGridSliceDefaultPrimary,
+			FramedPhotoGridSliceVariation,
+			FramedPhotoGridSliceDefault,
+			HeadingWithQuoteSlice,
+			HeadingWithQuoteSliceDefaultPrimary,
+			HeadingWithQuoteSliceVariation,
+			HeadingWithQuoteSliceDefault,
 			ImageWithTextSlice,
 			ImageWithTextSliceDefaultPrimary,
 			ImageWithTextSliceVariation,

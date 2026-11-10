@@ -18,6 +18,18 @@
             },
             "banner_with_text": {
               "type": "SharedSlice"
+            },
+            "collage_banner": {
+              "type": "SharedSlice"
+            },
+            "heading_with_quote": {
+              "type": "SharedSlice"
+            },
+            "framed_photo_grid": {
+              "type": "SharedSlice"
+            },
+            "framed_photo": {
+              "type": "SharedSlice"
             }
           }
         },

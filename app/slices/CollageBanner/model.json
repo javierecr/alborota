@@ -1,0 +1,118 @@
+{
+  "id": "collage_banner",
+  "type": "SharedSlice",
+  "name": "CollageBanner",
+  "description": "CollageBanner",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "image": {
+          "type": "Image",
+          "config": {
+            "label": "Image",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "image_mobile": {
+          "type": "Image",
+          "config": {
+            "label": "Image Mobile (optional)",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "image_height": {
+          "type": "Select",
+          "config": {
+            "label": "Image Height",
+            "placeholder": "",
+            "default_value": "1/0.35",
+            "options": [
+              "1/0.35",
+              "Screen",
+              "Auto"
+            ]
+          }
+        },
+        "vertical_layout": {
+          "type": "Select",
+          "config": {
+            "label": "Vertical Layout",
+            "placeholder": "",
+            "default_value": "Spread",
+            "options": [
+              "Spread",
+              "Top",
+              "Center",
+              "Bottom"
+            ]
+          }
+        },
+        "text_blocks": {
+          "type": "Group",
+          "config": {
+            "label": "Text blocks",
+            "repeat": true,
+            "fields": {
+              "kind": {
+                "type": "Select",
+                "config": {
+                  "label": "Kind",
+                  "placeholder": "",
+                  "default_value": "Body",
+                  "options": [
+                    "Heading",
+                    "Body"
+                  ]
+                }
+              },
+              "text": {
+                "type": "StructuredText",
+                "config": {
+                  "label": "Text",
+                  "placeholder": "",
+                  "allowTargetBlank": false,
+                  "single": "paragraph,hyperlink"
+                }
+              },
+              "position": {
+                "type": "Select",
+                "config": {
+                  "label": "Position",
+                  "placeholder": "",
+                  "default_value": "Left",
+                  "options": [
+                    "Left",
+                    "Center",
+                    "Right"
+                  ]
+                }
+              },
+              "tilt": {
+                "type": "Select",
+                "config": {
+                  "label": "Tilt",
+                  "placeholder": "",
+                  "default_value": "None",
+                  "options": [
+                    "None",
+                    "Left",
+                    "Right"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

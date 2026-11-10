@@ -1,0 +1,153 @@
+{
+  "id": "framed_photo",
+  "name": "FramedPhoto",
+  "type": "SharedSlice",
+  "variations": [
+    {
+      "description": "Default",
+      "docURL": "",
+      "id": "default",
+      "imageUrl": "",
+      "name": "With Caption",
+      "primary": {
+        "image": {
+          "config": {
+            "label": "Image"
+          },
+          "type": "Image"
+        },
+        "name": {
+          "config": {
+            "label": "Name"
+          },
+          "type": "Text"
+        },
+        "role": {
+          "config": {
+            "label": "Role"
+          },
+          "type": "Text"
+        },
+        "frame_color": {
+          "config": {
+            "default_value": "Pink",
+            "label": "Frame Color",
+            "options": [
+              "Olive",
+              "Pink",
+              "Orange",
+              "Grass",
+              "Cream",
+              "Beige"
+            ]
+          },
+          "type": "Select"
+        },
+        "image_align": {
+          "config": {
+            "default_value": "Left",
+            "label": "Image Align",
+            "options": [
+              "Left",
+              "Right"
+            ]
+          },
+          "type": "Select"
+        },
+        "image_ratio": {
+          "config": {
+            "default_value": "3/2",
+            "label": "Image Ratio",
+            "options": [
+              "3/2",
+              "2/1",
+              "16/9",
+              "Auto"
+            ]
+          },
+          "type": "Select"
+        },
+        "tilt": {
+          "config": {
+            "default_value": "Left",
+            "label": "Tilt",
+            "options": [
+              "None",
+              "Left",
+              "Right"
+            ]
+          },
+          "type": "Select"
+        }
+      },
+      "version": ""
+    },
+    {
+      "description": "Image Only",
+      "docURL": "",
+      "id": "imageOnly",
+      "imageUrl": "",
+      "name": "Image Only",
+      "primary": {
+        "image": {
+          "config": {
+            "label": "Image"
+          },
+          "type": "Image"
+        },
+        "frame_color": {
+          "config": {
+            "default_value": "Pink",
+            "label": "Frame Color",
+            "options": [
+              "Olive",
+              "Pink",
+              "Orange",
+              "Grass",
+              "Cream",
+              "Beige"
+            ]
+          },
+          "type": "Select"
+        },
+        "image_align": {
+          "config": {
+            "default_value": "Left",
+            "label": "Image Align",
+            "options": [
+              "Left",
+              "Right"
+            ]
+          },
+          "type": "Select"
+        },
+        "image_ratio": {
+          "config": {
+            "default_value": "2/1",
+            "label": "Image Ratio",
+            "options": [
+              "3/2",
+              "2/1",
+              "16/9",
+              "Auto"
+            ]
+          },
+          "type": "Select"
+        },
+        "tilt": {
+          "config": {
+            "default_value": "Left",
+            "label": "Tilt",
+            "options": [
+              "None",
+              "Left",
+              "Right"
+            ]
+          },
+          "type": "Select"
+        }
+      },
+      "version": ""
+    }
+  ]
+}

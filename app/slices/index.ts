@@ -5,9 +5,13 @@ import { defineSliceZoneComponents } from "@prismicio/vue";
 
 export const components = defineSliceZoneComponents({
 	banner_with_text: defineAsyncComponent(() => import("./BannerWithText/index.vue")),
+	collage_banner: defineAsyncComponent(() => import("./CollageBanner/index.vue")),
 	color_background_banner: defineAsyncComponent(() => import("./ColorBackgroundBanner/index.vue")),
 	featured_collection: defineAsyncComponent(() => import("./FeaturedCollection/index.vue")),
 	featured_projects: defineAsyncComponent(() => import("./FeaturedProjects/index.vue")),
+	framed_photo: defineAsyncComponent(() => import("./FramedPhoto/index.vue")),
+	framed_photo_grid: defineAsyncComponent(() => import("./FramedPhotoGrid/index.vue")),
+	heading_with_quote: defineAsyncComponent(() => import("./HeadingWithQuote/index.vue")),
 	image_with_text: defineAsyncComponent(() => import("./ImageWithText/index.vue")),
 	media_cover: defineAsyncComponent(() => import("./MediaCover/index.vue"))
 });
