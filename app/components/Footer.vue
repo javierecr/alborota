@@ -43,7 +43,7 @@ const backgroundStyle = computed(() => {
       </div>
 
       <div
-        class="flex flex-col items-end gap-[18px] md:flex-row md:items-center"
+        class="flex flex-col items-start gap-[18px] md:flex-row md:items-center"
       >
         <PrismicLink
           v-for="(link, index) in doc?.data.links"

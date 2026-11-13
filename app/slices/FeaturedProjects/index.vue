@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { Content } from "@prismicio/client";
+import type { Content } from '@prismicio/client';
 
 const props = defineProps(
   getSliceComponentProps<Content.FeaturedProjectsSlice>(),
@@ -11,7 +11,7 @@ const projects = computed(() =>
     .map((item) => item.project)
     .filter(
       (p): p is Extract<typeof p, { data: unknown }> =>
-        Boolean(p) && "data" in p && Boolean(p.data),
+        Boolean(p) && 'data' in p && Boolean(p.data),
     )
     .map((p) => p.data),
 );
@@ -22,8 +22,11 @@ const projects = computed(() =>
     :data-slice-type="slice.slice_type"
     :data-slice-variation="slice.variation"
   >
-    <div class="container mx-auto px-6 py-28 flex flex-col items-center gap-12">
-      <FeaturedSectionHeader :heading="slice.primary.heading" :cta="slice.primary.cta" />
+    <div class="container mx-auto md:py-28 flex flex-col items-center gap-12">
+      <FeaturedSectionHeader
+        :heading="slice.primary.heading"
+        :cta="slice.primary.cta"
+      />
 
       <FeaturedCardRow v-if="projects.length" gap="gap-[18px]">
         <FeaturedProjectCard
