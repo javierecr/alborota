@@ -20,13 +20,9 @@ const props = withDefaults(
 
 const { formatMoney, shopifyImageUrl } = useFormatMoney();
 
-const productLink = computed(() => {
-  const category =
-    props.collectionHandle ?? props.product.collections?.nodes?.[0]?.handle;
-  return category
-    ? `/tienda/${category}/${props.product.handle}`
-    : `/tienda/${props.product.handle}`;
-});
+const productLink = computed(() =>
+  productPath(props.product, props.collectionHandle),
+);
 
 const formatPrice = (product: Product) => {
   const variant = props.firstAvailableVariant;

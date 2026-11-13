@@ -30,6 +30,8 @@ const price = computed(() => {
     : min;
 });
 
+const productLink = computed(() => productPath(props.product));
+
 const isAdding = computed(() => props.addingToCart === props.product.id);
 const isAdded = computed(() => props.addedToCart === props.product.id);
 </script>
@@ -37,20 +39,24 @@ const isAdded = computed(() => props.addedToCart === props.product.id);
 <template>
   <FeaturedCard>
     <template #image>
-      <img
-        v-if="product.featuredImage?.url"
-        :src="shopifyImageUrl(product.featuredImage.url, 800)"
-        :alt="product.featuredImage.altText || product.title"
-        class="absolute inset-0 h-full w-full object-cover"
-        loading="lazy"
-      />
+      <NuxtLink :to="productLink" class="absolute inset-0 block">
+        <img
+          v-if="product.featuredImage?.url"
+          :src="shopifyImageUrl(product.featuredImage.url, 800)"
+          :alt="product.featuredImage.altText || product.title"
+          class="h-full w-full object-cover"
+          loading="lazy"
+        />
+      </NuxtLink>
     </template>
 
     <div class="flex items-start justify-between gap-4">
       <div class="flex flex-col gap-2 min-w-0">
-        <p class="font-abc font-bold uppercase text-[0.9375rem] leading-[18px] text-[#383839]">
-          {{ product.title }}
-        </p>
+        <NuxtLink :to="productLink" class="hover:underline">
+          <p class="font-abc font-bold uppercase text-[0.9375rem] leading-[18px] text-[#383839]">
+            {{ product.title }}
+          </p>
+        </NuxtLink>
         <p class="font-stevie text-[0.9375rem] leading-[18.7px] text-alborota-black">
           {{ price }}
         </p>
